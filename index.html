@@ -10,9 +10,13 @@
         <title>FishEye</title>
     </head>
     <body>
+        <div>
+            <a href="#haut-page" class="haut-page">Passer au contenu</a>
+        </div><!--1 mettre en display none-->
         <header class="heading">
-            <div>Passer au contenu</div><!--1 mettre en display none-->
-            <a href="#" class="heading__logo"></a><!--2 logo-->
+            <a href="#" class="heading__logo">
+                <img src="FishEye_Photos/Logo FishEye.png" alt="" class="heading__logo--img" />
+            </a><!--2 logo-->
             <nav class="heading__navigation"><!--3-->
                 <ul class="heading__navigation--taggs">
                     <li>#Portrait</li>
@@ -25,17 +29,19 @@
                     <li>#Event</li>             
                 </ul>
             </nav>
+            <h1>Nos photographes</h1><!--4-->
         </header>
-        <main>
-            <header>
-                <h1>Nos photographes</h1><!--4-->
-            </header>
+        <!--<a href="photographes.html?id=243">Mimi Keel</a>-->
+        <main id="haut-page">
             <section class="photographes">
+
+            </section>
+            <section class="photographes_old">
                 <div class="photographes__bloc">
                     <div class="photographe">
-                        <a ><!--5-->
+                        <a href="#"><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Nora.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Nora.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Mimi Keel</h2>
                         </a>
@@ -61,7 +67,7 @@
                     <div class="photographe">
                         <a><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Ellie-Rose Wilkens</h2>
                         </a>
@@ -84,7 +90,7 @@
                     <div class="photographe">
                         <a ><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Tracy/Fashion_Urban_Jungle.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Tracy/Fashion_Urban_Jungle.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Tracy Galindo</h2>
                         </a>
@@ -108,7 +114,7 @@
                     <div class="photographe">
                         <a><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Nabeel/Travel_Outdoor_Baths.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Nabeel/Travel_Outdoor_Baths.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Nabeel Bradford</h2>
                         </a>
@@ -131,7 +137,7 @@
                     <div class="photographe">
                         <a><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Rhode/Fashion_Melody_Red_on_Stripes.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Rhode/Fashion_Melody_Red_on_Stripes.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Rhode Dubois</h2>
                         </a>
@@ -156,7 +162,7 @@
                     <div class="photographe">
                         <a><!--5-->
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Marcel/Travel_Tower.jpg" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Marcel/Travel_Tower.jpg" alt="" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">Marcel Nikolic</h2>
                         </a>
@@ -177,5 +183,6 @@
                 </div>
             </section>
         </main>
+        <script src="acceuil.js"></script>
     </body>
 </html>

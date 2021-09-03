@@ -4,6 +4,9 @@
 body {
     margin: 0;
     font-family: 'DM Sans', sans-serif;
+    color: #901C1C;
+}
+body h2 {
     color: #D3573C;
 }
 body a {
@@ -12,36 +15,83 @@ body a {
 body ul {
     list-style-type: none;
 }
+p {
+    margin: 0;
+}
 
+//variables scss
+$couleur-primaire: #000000;
+
+.haut-page {
+    color: $couleur-primaire;
+    padding: 6px 8px;
+    background-color: #DB8876;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 45%;    
+}
+.heading {
+    display: flex;
+    align-items: baseline;
+    justify-content:space-evenly;
+    &__logo {
+        &--img {
+            width: 123px;
+        }
+    }
+    &__navigation {
+
+        &--taggs {
+            display: flex;
+            li {
+                padding: 3px;
+                border: 0.5px solid #C4C4C4;
+                border-radius: 17px;
+                margin: 2px;
+                font-size: 13px;
+            }
+        }
+    }
+}
 .photographes {
     display: flex;
     flex-wrap: wrap;
     justify-content:flex-end;
     
     &__bloc {
+        //display: none;
         /*width: 526px;
         height: 358px;
         top: -50px;
         left: -162px;*/
-        width: 31.33%;
+        width: 33.33%;
         border: 2px solid #95FFF9;
+        margin-top: 20px;
     }
     &__description {
         text-align: center;
-        >:nth-of-type(2), >:nth-of-type(3){
-            color: #000000;
+        >:nth-of-type(2) {
+            color: $couleur-primaire;
+            font-size: 13px;
+        }
+        >:nth-of-type(3) {
+            color: #757575;
+            font-size: 12px;
         }
     }
 }
 .photographe {
-    width: 263px;
+    width: 100%;
     height: 277px;
+    display: flex;
+    justify-content: center;
     &__image {
         margin:0 auto;
         width: 100%;
         height: 200px;
         &--img {
-            width: 100%;
+            width: 200px;
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
@@ -49,18 +99,24 @@ body ul {
     }
     &__titre {
         text-align: center;
+        margin-top: 40px;
     }
 }
 .main-navigation {
     
     &__taggs {
         display: flex;
-        //justify-content: space-evenly;
+        justify-content: center;
         &--li {
-            padding: 15px 10px;
+            padding: 2px;
             border: 0.5px solid #C4C4C4;
             border-radius: 11px;
             margin: 2px;
+            font-size: 15px;
         }
     }
+}
+
+.photographes_old {
+    display: none;
 }

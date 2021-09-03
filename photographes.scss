@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0 20px;
+    font-family: 'DM Sans', sans-serif;
+}
+body a {
+    text-decoration: none;
+}
+body ul {
+    list-style-type: none;
+}
+h1 {
+    color: #D3573C;
+}
+
+//variables scss
+$couleur-secondaire: #901C1C;
+$couleur-tertiaire: #911C1C;
+
+/*label {
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+input {
+    padding: 8px;
+    border: 0.8px solid #ccc;
+}*/
+.heading {
+
+    &__logo {
+        width: 150px;
+    }
+}
+.heading-photo {//à corriger avec la bonne classe
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px; 
+}
+.photographe-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 20px 0;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    border: 2px solid #95FFF9;
+    &__bloc {
+        display: flex;
+        &--description {
+            >:nth-of-type(1){
+                color: $couleur-secondaire;
+                font-size: 18px;
+            }
+            >:nth-of-type(2) {
+                color: #525252;
+                font-size: 14px;
+            }
+        }
+        &--navigation {
+            ul {
+                display: flex;
+                padding: 0;
+                li {
+                    padding: 2px;
+                    border: 0.5px solid #C4C4C4;
+                    border-radius: 11px;
+                    margin: 2px;
+                    font-size: 14px;
+                    color: $couleur-tertiaire;
+                }
+            }
+        }
+    }
+}
+.boutonContact { //class à corriger
+    background-color: $couleur-secondaire;
+    color: #FFFFFF;
+    height: 45px;
+    border: none;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 10px;
+}
+.photographe-galerie {
+    
+    &__texte {
+        width: 170px;
+        background-color: #DB8876;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        border-radius: 5px;
+        position: fixed;
+        right: 10px;
+        top: 500px;
+        /*&--likes {
+            padding-left: 10px;
+        }*/
+    }
+    label {
+        font-size: 14px;
+    }
+    select {
+        background-color: $couleur-tertiaire;
+        color: #FFFFFF;
+        margin-left: 10px;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 13px;
+    }
+}
+.photographe-medias {//bordure à supprimer
+    border: 2PX solid #95FFF9;
+}
+.photographe-medias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    &__lightbox {
+        width: 31.33%;
+        margin-bottom: 15px;
+        &--texte {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        p {
+            color: $couleur-secondaire;
+            margin: 0;
+        }
+        i {
+            color: $couleur-tertiaire;
+        }
+        &--img {
+            width:  100%;
+            height: 310px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+}
+
+//FORMULAIRE
+.modale {
+    width: 500px;
+    height: 600px;
+    background-color: #DB8876;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.formulaire {
+    margin: 20px;
+    padding: 10px;
+    &__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        i {
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+    }
+    &__titre {
+        color: #000;
+    }
+    &__infos {
+        /*padding: 15px;
+        margin: 15px;*/
+        label {
+            display: inline-block;
+            //font-size: 12px;
+            margin-bottom: 10px;
+        }
+        input {
+            padding: 8px;
+            border: none;
+        }
+        textarea {
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+}
+.bouton-envoyer {
+    padding: 12px 25px;
+    background-color: #911C1C;
+    color: #FFF;
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 40px;
+}
+.zone-texte {
+    margin: 0;
+    //padding: 8px;
+    width: 97%;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 8px;
+}
+

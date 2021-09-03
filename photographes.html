@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/main.min.css" />
+        <link rel="stylesheet" href="css/photographes.min.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
@@ -10,40 +10,162 @@
         <title>FishEye</title>
     </head>
     <body>
-        <header></header><!--1-->
+        <header class="heading"><!--1-->
+            <a href="index.html">
+                <img src="FishEye_Photos/Logo FishEye.png" alt="" class="heading__logo" />
+            </a>
+        </header>
         <main>
-            <section>
-                <h1>Mimi Keel</h1><!--2-->
+            <section class="photographe-heading">
+                <div class="photographe-heading__bloc">
+                    <div>
+                        <h1>Mimi Keel</h1><!--2-->
+                        <div class="photographe-heading__bloc--description"><!--3-->
+                            <p>London, UK</p>
+                            <p>Voir le beau dans le quotidien</p>
+                        </div><!--3-->
+                        <a><!--4-->
+                            <nav class="photographe-heading__bloc--navigation">
+                                <ul>
+                                    <li>#portrait</li>
+                                    <li>#events</li>
+                                    <li>#travel</li>
+                                    <li>#animals</li>
+                                </ul>
+                            </nav>
+                        </a>
+                    </div>
+                    <button class="boutonContact">Contactez-moi</button><!--5-->
+                </div>
                 <div>
-                    <p>London, UK</p>
-                    <p>Voir le beau dans le quotidien</p>
-                </div><!--3-->
-                <a><!--4-->
-                    <nav>
-                        <ul>
-                            <li>#portrait</li>
-                            <li>#events</li>
-                            <li>#travel</li>
-                            <li>#animals</li>
-                        </ul>
-                    </nav>
-                </a>
-                <button>Contactez-moi</button><!--5-->
-                <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Nora.jpg"><!--6-->
-                <div><!--7-->
-                    <span>
+                    <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Nora.jpg" alt="" class="heading-photo"><!--6-->
+                </div>
+            </section>
+            
+            <!--</section>-->
+            <section class="photographe-galerie">    
+                <div class="photographe-galerie__texte"><!--7-->
+                    <span class="photographe-galerie__texte--likes">
                         297 081<i class="fas fa-heart"></i>
                     </span>
                     <span>300€ / jour</span>
                 </div>
-                <!--8-->
-                <!--9-->
-                <a><!--10-->
-                    <img>
-                </a>
-                <p><!--11--></p>
-                <i class="fas fa-heart"></i><!--12-->
+                <label for="filtrer">Trier par</label><!--8-->
+                <select id="filtrer" name="tri"><!--9-->
+                    <option value="popularite" class="popularite">Popularité</option>
+                    <option value="date">Date</option>
+                    <option value="titre">Titre</option>
+                </select>
             </section>
+            <section class="photographe-medias">
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Animals_Rainbow.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p>Arc-en-ciel</p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Travel_Lonesome.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p>Solitude</p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Event_SeasideWedding.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p>Mariage à la mer</p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Background.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Event_PintoWedding.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Portrait_Wednesday.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Event_BenevidesWedding.jpg" alt="" class="photographe-medias__lightbox--img" />
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <img src="FishEye_Photos/Sample Photos/Mimi/Travel_HillsideColor.jpg" alt="" class="photographe-medias__lightbox--img"/>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+                <div class="photographe-medias__lightbox">
+                    <a><!--10-->
+                        <video src="FishEye_Photos/Sample Photos/Mimi/Animals_Wild_Horses_in_the_mountains.mp4" controls poster="FishEye_Photos/Sample Photos/Mimi/Capture d’écran Mimi Keel.png" width="100%" height="310px"></video>
+                    </a>
+                    <div class="photographe-medias__lightbox--texte">
+                        <p></p><!--11-->
+                        <i class="fas fa-heart"></i><!--12-->
+                    </div>
+                </div>
+
+            </section>
+            <aside class="modale"> <!--balise à supprimer pour clôture section à formulaire-->   
+                <form method="post" action="" class="formulaire">
+                    <div class="formulaire__heading">
+                        <h1 class="formulaire__titre">Contactez-moi <br/>Mimi Keel</h1>
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="formulaire__infos">
+                        <label for="first-prenom">Prénom</label><br/>
+                        <input type="text" id="first-prenom" name="prenom" class="zone-texte" required/>
+                    </div>
+                    <div class="formulaire__infos">
+                        <label for="last-nom">Nom</label><br/>
+                        <input type="text" id="last-nom" name="nom" class="zone-texte" required/>
+                    </div>
+                    <div class="formulaire__infos">
+                        <label for="email">Email</label><br/>
+                        <input type="text" id="email" name="prenom" class="zone-texte" required/>
+                    </div>
+                    <div class="formulaire__infos">
+                        <label for="message">Votre message</label><br/>
+                        <textarea id="message" name="message_text" rows="5" cols="20"></textarea><!--rows et cols donnent une largeur et un nombre de lignes définis. Agrandissent l'espace de saisie.Facultatif-->
+                    </div>
+                    <input class="bouton-envoyer" id="envoiModal" type="submit" value="Envoyer"/>
+                </form>
+            </aside>
         </main>
     </body>
 </html>
