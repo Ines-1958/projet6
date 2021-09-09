@@ -102,6 +102,7 @@ input {
 
 .photographe-galerie label {
   font-size: 14px;
+  color: black;
 }
 
 .photographe-galerie select {
@@ -218,4 +219,8 @@ input {
   height: 20px;
   font-size: 20px;
   border-radius: 8px;
+}
+
+.photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
+  display: none;
 }

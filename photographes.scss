@@ -102,6 +102,7 @@ input {
     }
     label {
         font-size: 14px;
+        color: black;
     }
     select {
         background-color: $couleur-tertiaire;
@@ -206,3 +207,6 @@ input {
     border-radius: 8px;
 }
 
+.photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
+    display: none;
+}
