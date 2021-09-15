@@ -147,7 +147,7 @@
                 </div>
 
             </section>
-            <aside class="modale"> <!--balise à supprimer pour clôture section à formulaire-->   
+            <aside class="modale">    
                 <form method="post" action="" class="formulaire">
                     <div class="formulaire__heading">
                         <h1 class="formulaire__titre">Contactez-moi <br/>Mimi Keel</h1>
@@ -163,16 +163,18 @@
                     </div>
                     <div class="formulaire__infos">
                         <label for="email">Email</label><br/>
-                        <input type="text" id="email" name="prenom" class="zone-texte" required/>
+                        <input type="text" id="email" name="mail" class="zone-texte" required/>
                     </div>
                     <div class="formulaire__infos">
                         <label for="message">Votre message</label><br/>
                         <textarea id="message" name="message_text" rows="5" cols="20"></textarea><!--rows et cols donnent une largeur et un nombre de lignes définis. Agrandissent l'espace de saisie.Facultatif-->
                     </div>
-                    <input class="bouton-envoyer" id="envoiModal" type="submit" value="Envoyer"/>
+                    <input class="bouton-envoyer" id="envoiFormulaire" type="submit" value="Envoyer"/>
                 </form>
             </aside>
         </main>
         <script src="photographes.js"></script>
+        <script src="formulaire.js"></script>
+        
     </body>
 </html>
