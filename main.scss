@@ -29,7 +29,11 @@ $couleur-primaire: #000000;
     border-radius: 5px;
     font-size: 13px;
     font-weight: 700;
-    margin: 0 45%;    
+    margin: 0 45%; 
+    @media all and (max-width: 768px) {
+        display: none;
+    }
+       
 }
 .heading {
     display: flex;
@@ -58,7 +62,9 @@ $couleur-primaire: #000000;
     display: flex;
     flex-wrap: wrap;
     justify-content:flex-end;
-    
+    @media all and (max-width: 768px) {
+        flex-direction: column;
+    }
     &__bloc {
         //display: none;
         /*width: 526px;
@@ -68,6 +74,9 @@ $couleur-primaire: #000000;
         width: 33.33%;
         border: 2px solid #95FFF9;
         margin-top: 20px;
+        @media all and (max-width: 768px) {
+            width: 100%;
+        }
     }
     &__description {
         text-align: center;

@@ -42,11 +42,27 @@ rawFile.onreadystatechange = function() {
             section.innerHTML += monHtml;
     
             // console.log(monHtml);
+            
         })
+            
 
     }
 }
 rawFile.send(null);
+
+var myTagNavigation = document.querySelector('.heading__navigation--taggs');
+            let tagNavigation = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'Event'];
+            myTagNavigation = tagNavigation;
+            tagNavigation.forEach(function(element) {
+                if(tagNavigation !== undefined){
+                    console.log(tagNavigation[6])
+                }
+                else
+                
+                {
+                    console.log("tatatatata")
+                }
+            }) 
 
 
 //   function getPhotographe (id) {

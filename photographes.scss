@@ -123,9 +123,15 @@ input {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
+    @media all and (max-width: 768px) {
+        flex-direction: column;
+    }
     &__lightbox {
         width: 31.33%;
         margin-bottom: 15px;
+        @media all and (max-width: 768px) {
+            width: 100%;
+        }
         &--texte {
             display: flex;
             justify-content: space-between;
@@ -149,6 +155,7 @@ input {
 
 //FORMULAIRE
 .modale {
+    display: none;
     width: 500px;
     height: 600px;
     background-color: #DB8876;
@@ -166,6 +173,7 @@ input {
         i {
             font-size: 24px;
             color: #FFFFFF;
+            cursor: pointer;
         }
     }
     &__titre {
@@ -207,6 +215,10 @@ input {
     height: 20px;
     font-size: 20px;
     border-radius: 8px;
+}
+.erreur {
+    color: #FF4E60;
+    font-size: 10px;
 }
 
 .photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
