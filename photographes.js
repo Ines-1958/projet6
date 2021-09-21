@@ -19,6 +19,7 @@ rawFile.onreadystatechange = function() {
         console.log(medias);
         
         
+        
         photographes.forEach(function(element) { 
           if (urlId == element.id)
           {
@@ -47,7 +48,7 @@ rawFile.onreadystatechange = function() {
                                   </nav>
                               </a>
                           </div>
-                          <button class="boutonContact btn">Contactez-moi</button><!--5-->
+                          <button class="boutonContact btn">Contactez-moi</button>
                       </div>
                       <div>
                           <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${element.portrait}" alt="" class="heading-photo">
@@ -57,11 +58,13 @@ rawFile.onreadystatechange = function() {
                       medias.forEach(function(mediaPhotographe) { 
                         //console.log(photographerId);
                         if (element.id === mediaPhotographe.photographerId)
-                        //console.log(mediaPhotographe.likes);
+                        // console.log(mediaPhotographe.likes);
                          //return medias.image;
                         {
                             somme = somme + mediaPhotographe.likes; 
-            
+                            
+                            
+
 
                         images += `<div class="photographe-medias__lightbox">
                           <a href="">`
@@ -79,9 +82,25 @@ rawFile.onreadystatechange = function() {
                               <p>${mediaPhotographe.likes}<i class="fas fa-heart j-aime"></i></p>
                           </div>       
                         </div>`
+
+                        //incrémentation likes au click
+                        // const mesLikes = document.querySelectorAll('.j-aime');
+                        // const likes = medias.likes;
+                        // const mediaLikes = mediaPhotographe.likes; 
+                        // mesLikes.forEach((myLike) => likes.addEventListener("click", ajoutLikes(mediaLikes)));
+                        // mediaLikes.addEventListener("click", ajoutLikes);
+                        // console.log(mediaLikes);
+                        // function ajoutLikes(likes){
+                        //     mediaLikes++;
+                        //     somme++;
+                        // }
  
-                    }   
+                    }
+                
                 })
+                
+
+
                 images += ` <div class="photographe-galerie__texte">
                                 <span class="photographe-galerie__texte--likes">
                                     ${somme}<i class="fas fa-heart"></i>
@@ -98,7 +117,7 @@ rawFile.onreadystatechange = function() {
             //positionHtml += sectionMedias;
             // positionHtml.innerHTML += myHtml;  console.log(positionHtml);
           }
-        }) 
+        })//.then(function(){})
 
         const sectionGalerie = document.querySelector('.photographe-galerie');
 
@@ -112,13 +131,14 @@ rawFile.onreadystatechange = function() {
 }
 rawFile.send(null);
 
-const mesLikes = document.querySelector('.j-aime');
-        const likes = medias.likes;
-        somme = 0;
-        somme = somme + medias.likes; 
-        console.log("somme");
-        medias.forEach((likes) => likes.addEventListener("click", ajoutLikes));
-        //likes.addEventListener("click", ajoutLikes);
-        function ajoutLikes(){
-            likes++;
-        }
+
+
+// const mesLikes = document.querySelector('.j-aime');
+// const likes = mediaPhotographe.likes;
+// console.log("mesLikes");
+// console.log(mesLikes);
+// console.log(likes);
+// likes.forEach(() => mesLikes.addEventListener("click", ajoutLikes));
+// function ajoutLikes(){
+//     likes++;
+// }   

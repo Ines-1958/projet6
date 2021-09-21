@@ -1,76 +1,23 @@
-// document.addEventListener("DOMContentLoaded", function(event) { 
-//     const idRecuperation = window.location.search;
-// const urlParams = new URLSearchParams(idRecuperation);
-// const urlId = urlParams.get('id')
-// console.log(urlId);
-// let rawFile = new XMLHttpRequest();
-// rawFile.overrideMimeType("application/json");
-// rawFile.open("GET","https://ines-1958.github.io/projet6/FishEyeData.json", true);
-// rawFile.onreadystatechange = function() {
-//     if(rawFile.readyState == 4 && rawFile.status == 200) {
-//         // console.log(rawFile.responseText)
-//         var json = rawFile.responseText;
-//         const obj = JSON.parse(json);
-//         console.log(obj);
-//         const photographes = obj.photographers;
-//         console.log(photographes);
-//         const aside = document.querySelector('aside');
-
-//         photographes.forEach(function(element) { 
-//             //var formulaireHtml;
-//             if (urlId == element.id){
-//              formulaireHtml = `
-//                 <aside class="modale">    
-//                 <form method="post" action="" class="formulaire">
-//                     <div class="formulaire__heading">
-//                         <h1 class="formulaire__titre">Contactez-moi <br/>${element.name}</h1>
-//                         <i class="fas fa-times"></i>
-//                     </div>
-//                     <div class="formulaire__infos">
-//                         <label for="first-prenom">Prénom</label><br/>
-//                         <input type="text" id="first-prenom" name="prenom" class="zone-texte" required/>
-//                     </div>
-//                     <div class="formulaire__infos">
-//                         <label for="last-nom">Nom</label><br/>
-//                         <input type="text" id="last-nom" name="nom" class="zone-texte" required/>
-//                     </div>
-//                     <div class="formulaire__infos">
-//                         <label for="email">Email</label><br/>
-//                         <input type="text" id="email" name="prenom" class="zone-texte" required/>
-//                     </div>
-//                     <div class="formulaire__infos">
-//                         <label for="message">Votre message</label><br/>
-//                         <textarea id="message" name="message_text" rows="5" cols="20"></textarea><!--rows et cols donnent une largeur et un nombre de lignes définis. Agrandissent l'espace de saisie.Facultatif-->
-//                     </div>
-//                     <input class="bouton-envoyer" id="envoiFormulaire" type="submit" value="Envoyer"/>
-//                 </form>
-//             </aside>
-//                 `; 
-//             }
-//         })
-//         const positionHtml = document.querySelector('main');
-//         positionHtml.innerHTML += formulaireHtml;
-//     }
-// }
-// rawFile.send(null);
-//   });
-
-const modaleFormulaire = document.querySelector('.modale');
-const modaleBouton = document.querySelector('.boutonContact');
+var modaleFormulaire = document.querySelector('.modale');
 //const modaleBouton = document.querySelector('.btn');
 const modaleClose = document.querySelector('.close');
+//window.addEventListener('DOMContentLoaded', function(){
+  const modaleBouton = document.querySelector('.photographe-heading__bloc .boutonContact');
+  console.log("modaleBouton");
+  console.log(modaleBouton);
+  //modaleBouton.forEach((btn) => btn.addEventListener("click", affichageModale));
 
-// launch modal event
-//modaleBouton.forEach((btn) => btn.addEventListener("click", affichageModale));
-modaleBouton.addEventListener("click", affichageModale);
-console.log("miiiiiiiiiaaaaaa");
+//});
+// Appel fonction d'affichage de la modale
+// modaleBouton.addEventListener("click", affichageModale);
+// console.log("miiiiiiiiiaaaaaa");
 
 //appel de la fonction close modal
 modaleClose.addEventListener("click", closeModal);
 
 //Affichage modale
 function affichageModale() {
-  modalbg.style.display = "block";
+  modaleFormulaire.style.display = "block";
 }
 
 //fermeture de la modale
@@ -105,6 +52,7 @@ soumissionFormulaire.addEventListener("click", function(e){
   {
     errors.push("nom")
   } 
+
   if(!email.match(emailRegex)){
     errors.push("email")  
   }
@@ -127,7 +75,8 @@ soumissionFormulaire.addEventListener("click", function(e){
 
   //si pas d'erreurs
   else {
-
+    const envoiFormulaire = document.querySelector('.bouton-envoyer');
+    envoiFormulaire.addEventListener("click", closeModal);
   }
     
 })
@@ -160,13 +109,15 @@ tagNavigation.forEach(function(element) {
   
   }
 }) 
-const mesLikes = document.querySelector('.j-aime');
-        const likes = medias.likes;
-        somme = 0;
-        somme = somme + medias.likes; 
-        console.log("somme");
-        medias.forEach((likes) => likes.addEventListener("click", ajoutLikes));
-        //likes.addEventListener("click", ajoutLikes);
-        function ajoutLikes(){
-            likes++;
-        }
+
+// const mesLikes = document.querySelector('.j-aime');
+// const likes = medias.likes;
+// somme = 0;
+// somme = somme + medias.likes; 
+// console.log("somme");
+// medias.forEach((likes) => likes.addEventListener("click", ajoutLikes));
+// //likes.addEventListener("click", ajoutLikes);
+// function ajoutLikes(){
+//     likes++;
+//     //somme++;
+// }

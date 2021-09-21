@@ -34,6 +34,12 @@ p {
   margin: 0 45%;
 }
 
+@media all and (max-width: 768px) {
+  .haut-page {
+    display: none;
+  }
+}
+
 .heading {
   display: flex;
   align-items: baseline;
@@ -62,6 +68,12 @@ p {
   justify-content: flex-end;
 }
 
+@media all and (max-width: 768px) {
+  .photographes {
+    flex-direction: column;
+  }
+}
+
 .photographes__bloc {
   /*width: 526px;
         height: 358px;
@@ -70,6 +82,12 @@ p {
   width: 33.33%;
   border: 2px solid #95FFF9;
   margin-top: 20px;
+}
+
+@media all and (max-width: 768px) {
+  .photographes__bloc {
+    width: 100%;
+  }
 }
 
 .photographes__description {
