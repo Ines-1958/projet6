@@ -50,19 +50,39 @@ rawFile.onreadystatechange = function() {
 }
 rawFile.send(null);
 
-var myTagNavigation = document.querySelector('.heading__navigation--taggs');
-            let tagNavigation = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'Event'];
-            myTagNavigation = tagNavigation;
-            tagNavigation.forEach(function(element) {
-                if(tagNavigation !== undefined){
-                    console.log(tagNavigation[6])
-                }
-                else
-                
-                {
-                    console.log("tatatatata")
-                }
-            }) 
+var myTagNavigation = document.querySelectorAll('.heading__navigation--taggs li');
+let tagNavigation = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'Event'];
+// myTagNavigation = tagNavigation;
+function photographeTag() {
+  console.log(this.innerHTML);
+  if (myTagNavigation == tagPhotographe ) {
+      console.log(photographes.tag);
+  }
+  else {
+      console.log("photographes");
+  }
+}
+console.log(myTagNavigation)
+myTagNavigation.forEach(function(e) {
+    e.addEventListener("click", photographeTag );
+    // photographeTag.forEach((element) => {
+    //     if (element == tagPhotographe) {
+    //         console.log("miiiiiiiiiiiiaaaaaaa");
+    //     }
+    // })
+    // if(tagNavigation !== undefined){
+    //     console.log(tagNavigation[6])
+    // }
+    // else if (element == tagPhotographe) {
+    //     element.addEventListener("click", );
+    // }
+    // else
+    
+    // {
+    //     console.log("tatatatata")
+    // }
+}) 
+//tagNavigation.forEach((element) => element.addEventListener("click", )
 
 
 //   function getPhotographe (id) {

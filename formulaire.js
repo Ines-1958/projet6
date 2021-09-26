@@ -2,14 +2,14 @@ var modaleFormulaire = document.querySelector('.modale');
 //const modaleBouton = document.querySelector('.btn');
 const modaleClose = document.querySelector('.close');
 //window.addEventListener('DOMContentLoaded', function(){
-  const modaleBouton = document.querySelector('.photographe-heading__bloc .boutonContact');
+  const modaleBouton = document.querySelector('.boutonContact');
   console.log("modaleBouton");
   console.log(modaleBouton);
   //modaleBouton.forEach((btn) => btn.addEventListener("click", affichageModale));
 
 //});
 // Appel fonction d'affichage de la modale
-// modaleBouton.addEventListener("click", affichageModale);
+modaleBouton.addEventListener("click", affichageModale);
 // console.log("miiiiiiiiiaaaaaa");
 
 //appel de la fonction close modal

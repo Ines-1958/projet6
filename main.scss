@@ -39,15 +39,32 @@ $couleur-primaire: #000000;
     display: flex;
     align-items: baseline;
     justify-content:space-evenly;
+    @media all and (max-width: 768px) {
+        //flex-direction: row-reverse;
+        flex-wrap:wrap;
+    }
     &__logo {
+        @media all and (max-width: 768px) {
+            order: 1;
+            width: 50%;
+        }
         &--img {
             width: 123px;
+            @media all and (max-width: 768px) {
+                width: 150px;
+            }
         }
     }
     &__navigation {
-
+        @media all and (max-width: 768px) {
+            order: 3;
+            //width: 100%;
+        }
         &--taggs {
             display: flex;
+            @media all and (max-width: 768px) {
+                flex-wrap: wrap;
+            }
             li {
                 padding: 3px;
                 border: 0.5px solid #C4C4C4;
@@ -55,6 +72,12 @@ $couleur-primaire: #000000;
                 margin: 2px;
                 font-size: 13px;
             }
+        }
+    }
+    h1 {
+        @media all and (max-width: 768px) {
+            order: 2;
+            font-size: 19px;
         }
     }
 }

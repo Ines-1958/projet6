@@ -39,8 +39,8 @@ input {
     object-fit: cover;
     margin-top: 20px;
     @media all and (max-width: 768px) {
-        width: 110px;
-        height: 110px;  
+        width: 130px;
+        height: 130px;  
     } 
 }
 .photographe-heading {
@@ -56,6 +56,9 @@ input {
     }
     &__bloc {
         display: flex;
+        @media all and (max-width: 768px) {
+            width: calc(100% - 130px);
+        }
         &--description {
             >:nth-of-type(1){
                 color: $couleur-secondaire;
@@ -94,7 +97,8 @@ input {
     @media all and (max-width: 768px) {
         position: fixed;
         top: 530px;
-        left: calc(100vw - 260PX);//à corriger
+        left: calc(80vw - 50%);//à corriger
+        //left: calc(100vw - 260px);//à corriger
     }
 }
 .photographe-galerie {
@@ -166,14 +170,44 @@ input {
 }
 
 //FORMULAIRE
+.conteneur-modale {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+overflow: auto;
+background-color: rgba(20,50,92,0.4);
+}
 .modale {
-    display: none;
-    width: 500px;
-    height: 600px;
+    //display: none;
+    //width: 500px;
+    //height: 600px;
     background-color: #DB8876;
-    display: block;
-    margin: 0 auto;
+    //margin: 0 auto;
     border-radius: 5px;
+
+    width: 100%;
+    max-width: 500px;
+    margin: 5% auto;
+    overflow: hidden;
+    position: relative;
+    // top: 50%;
+    // left: 50%;
+    // position: fixed;
+    // margin-top: -80px;
+    // z-index: 5;
+
+    //position: fixed;
+    // z-index: 1;
+    // left: 0;
+    // top: 0;
+    //height: 100%;
+    //width: 80%;
+    overflow: auto;
+    
     @media all and (max-width: 768px) {
         width: 100%;
     }
@@ -225,6 +259,7 @@ input {
     @media all and (max-width: 768px) {
         display: block;
         margin: 40px auto;
+        //left: calc(100vw - 50%);
     }
 }
 .zone-texte {
