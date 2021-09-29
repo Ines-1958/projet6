@@ -184,6 +184,8 @@ input {
 
 .photographe-medias__lightbox i {
   color: #911C1C;
+  cursor: pointer;
+  margin-left: 5px;
 }
 
 .photographe-medias__lightbox--img {

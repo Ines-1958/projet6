@@ -1,8 +1,11 @@
 //récuperation id pages photographes
+//console.log('aaaaaaaaaaaaaaaaaaa')
+
 const idRecuperation = window.location.search;
 const urlParams = new URLSearchParams(idRecuperation);
 const urlId = urlParams.get('id')
 console.log(urlId);
+
 
 function factory(json, idPhotographe)
 {
@@ -17,20 +20,22 @@ function factory(json, idPhotographe)
 
     return result;
 }
-
+var json;
 let rawFile = new XMLHttpRequest();
 rawFile.overrideMimeType("application/json");
 rawFile.open("GET","https://ines-1958.github.io/projet6/FishEyeData.json", true);
 rawFile.onreadystatechange = function() {
     if(rawFile.readyState == 4 && rawFile.status == 200) {
         // console.log(rawFile.responseText)
-        var json = rawFile.responseText;
+        json = rawFile.responseText;
+           
+        
         const obj = JSON.parse(json);
-        console.log(obj);
+        //console.log(obj);
         const photographes = obj.photographers;
-        console.log(photographes);
+        //console.log(photographes);
         const medias = obj.media;
-        console.log(medias);
+        //console.log(medias);
         // console.log("FACTORY")
         // console.log(factory(medias, urlId))
         
@@ -39,7 +44,7 @@ rawFile.onreadystatechange = function() {
         photographes.forEach(function(element) { 
           if (urlId == element.id)
           {
-            console.log(element);
+            //console.log(element);
             const prix = element.price
             var formulaire__nom = document.getElementById("formulaire__nom")
             formulaire__nom.innerHTML += element.name;
@@ -72,7 +77,7 @@ rawFile.onreadystatechange = function() {
                       var somme = 0;
                       var images ="";
                       let mediaList = factory(medias, urlId);
-                      console.log(mediaList)
+                      //console.log(mediaList)
                       mediaList.forEach(function(mediaPhotographe) { 
                         //console.log(photographerId);
                         // if (element.id === mediaPhotographe.photographerId)
@@ -97,22 +102,34 @@ rawFile.onreadystatechange = function() {
                           images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
                               <p>${mediaPhotographe.title}</p>
-                              <p>${mediaPhotographe.likes}<i class="fas fa-heart j-aime"></i></p>
+                              <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="like"></i></p>
                           </div>       
                         </div>`
 
-                        //incrémentation likes au click
-                        // const mesLikes = document.querySelectorAll('.j-aime');
-                        // const likes = medias.likes;
-                        // const mediaLikes = mediaPhotographe.likes; 
-                        // mesLikes.forEach((myLike) => likes.addEventListener("click", ajoutLikes(mediaLikes)));
-                        // mediaLikes.addEventListener("click", ajoutLikes);
-                        // console.log(mediaLikes);
-                        // function ajoutLikes(likes){
-                        //     mediaLikes++;
-                        //     somme++;
-                        // }
+                        //INCREMENTATION BOUTON LIKE
+                        const nombreLikes = mediaPhotographe.likes;
+                        console.log('nombreLikes : ' + nombreLikes);
+                        
+                        const myLikes = document.querySelectorAll('p.test i');
+                        console.log('myLikes : ' + myLikes); 
+
+                        myLikes.forEach(function(element) {
+                            element.addEventListener("click", ajoutLike);
+                        }); 
+
+                        function ajoutLike() {
+                            //console.log(this.getAttribute("data-like"));
+                            //console.log(ajoutLike);
+                            nombreLikes++; 
+                            somme++;
+                        };
+
+                         
  
+                        // myLikes.addEventListener('click', event => {
+                        //     nombreLikes++;  
+                        // });
+
                     }
                 
                 })
@@ -132,32 +149,26 @@ rawFile.onreadystatechange = function() {
             sectionHeading.innerHTML = header;
             const sectionMedias = document.querySelector('.photographe-medias');
             sectionMedias.innerHTML = images;
-            //positionHtml += sectionMedias;
-            // positionHtml.innerHTML += myHtml;  console.log(positionHtml);
+            
           }
         })//.then(function(){})
 
         const sectionGalerie = document.querySelector('.photographe-galerie');
 
-        //console.log(obj.media[3].image);
-        //sectionMedias.innerHTML += myHtml;
-        //sectionHeading.innerHTML += myHtml; 
+    
 
         //VERIFICATION ET VALIDATION DU FORMULAIRE
 
         var modaleFormulaire = document.querySelector('.conteneur-modale');
-        //const modaleBouton = document.querySelector('.btn');
         const modaleClose = document.querySelector('.close');
         //window.addEventListener('DOMContentLoaded', function(){
         const modaleBouton = document.querySelector('.boutonContact');
-        console.log("modaleBouton");
-        console.log(modaleBouton);
-        //modaleBouton.forEach((btn) => btn.addEventListener("click", affichageModale));
+        //console.log("modaleBouton");
+        //console.log(modaleBouton);
 
-        //});
+        
         // Appel fonction d'affichage de la modale
         modaleBouton.addEventListener("click", affichageModale);
-        // console.log("miiiiiiiiiaaaaaa");
 
         //appel de la fonction close modal
         modaleClose.addEventListener("click", closeModal);
@@ -173,7 +184,7 @@ rawFile.onreadystatechange = function() {
         }
 
 
-        //Vérification formulaire
+        //VERIFICATION FORMULAIRE
 
         const soumissionFormulaire = document.querySelector("#envoiFormulaire");
         soumissionFormulaire.addEventListener("click", function(e){
@@ -229,58 +240,29 @@ rawFile.onreadystatechange = function() {
         })
 
 
-        // var tagNavigation = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'Event']
-        // let monFiltre = tagNavigation.filter(function(element) {
-        //   for (let i = 0; i < element.length; i++) {
-        //     if (element[i] == 'portrait' || element[i] == 'art' || element[i] == 'fashion' || element[i] == 'architecture' || element[i] == 'travel' || element[i] == 'sport' || element[i] == 'animals' || element[i] == 'event') {
-        //       console.log(tagNavigation);
-        //     }
-        //   }
-        // })
-
-        var myTagNavigation = document.querySelector('.heading__navigation--taggs');
-        let tagNavigation = ['portrait', 'art', 'fashion', 'architecture', 'travel', 'sport', 'animals', 'Event'];
-        myTagNavigation = tagNavigation;
-        tagNavigation.forEach(function(element) {
-
-        if(tagNavigation !== undefined){
-            console.log("MOIIIIIIII")
-        }
-        else if (photographes.tags == element) {
-            for (let i = 0; i < element.length; i++) {
-            if (element[i] == 'portrait' || element[i] == 'art' || element[i] == 'fashion' || element[i] == 'architecture' || element[i] == 'travel' || element[i] == 'sport' || element[i] == 'animals' || element[i] == 'event') {
-            // console.log("mamanb");
-            }
-            console.log("tatatatata")
-        }
         
-        }
-        }) 
-
-        // const mesLikes = document.querySelector('.j-aime');
-        // const likes = medias.likes;
-        // somme = 0;
-        // somme = somme + medias.likes; 
-        // console.log("somme");
-        // medias.forEach((likes) => likes.addEventListener("click", ajoutLikes));
-        // //likes.addEventListener("click", ajoutLikes);
-        // function ajoutLikes(){
-        //     likes++;
-        //     //somme++;
-        // }
         
   }
 }
 rawFile.send(null);
 
+function getPhotographesByTag(tag) {
+
+}
+function toto() {
+    console.log('toto');
+
+}
+function getPhotographes(callback) {
+    console.log(json);
+    if (callback == undefined) {
+
+    }
+}
 
 
-// const mesLikes = document.querySelector('.j-aime');
-// const likes = mediaPhotographe.likes;
-// console.log("mesLikes");
-// console.log(mesLikes);
-// console.log(likes);
-// likes.forEach(() => mesLikes.addEventListener("click", ajoutLikes));
-// function ajoutLikes(){
-//     likes++;
-// }   
+
+
+
+
+

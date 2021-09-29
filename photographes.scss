@@ -159,6 +159,8 @@ input {
         }
         i {
             color: $couleur-tertiaire;
+            cursor: pointer;
+            margin-left: 5px;
         }
         &--img {
             width:  100%;

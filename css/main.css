@@ -91,6 +91,7 @@ p {
   border-radius: 17px;
   margin: 2px;
   font-size: 13px;
+  cursor: pointer;
 }
 
 @media all and (max-width: 768px) {
