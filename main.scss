@@ -85,7 +85,7 @@ $couleur-primaire: #000000;
 .photographes {
     display: flex;
     flex-wrap: wrap;
-    justify-content:flex-end;
+    justify-content: initial;
     @media all and (max-width: 768px) {
         flex-direction: column;
     }

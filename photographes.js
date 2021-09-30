@@ -41,6 +41,7 @@ rawFile.onreadystatechange = function() {
         
         
         
+        var somme = 0;
         photographes.forEach(function(element) { 
           if (urlId == element.id)
           {
@@ -74,7 +75,7 @@ rawFile.onreadystatechange = function() {
                       <div>
                           <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${element.portrait}" alt="" class="heading-photo">
                       </div>`;
-                      var somme = 0;
+                      
                       var images ="";
                       let mediaList = factory(medias, urlId);
                       //console.log(mediaList)
@@ -107,22 +108,10 @@ rawFile.onreadystatechange = function() {
                         </div>`
 
                         //INCREMENTATION BOUTON LIKE
-                        const nombreLikes = mediaPhotographe.likes;
-                        console.log('nombreLikes : ' + nombreLikes);
+                        // const nombreLikes = mediaPhotographe.likes;
+                        // console.log(nombreLikes);
                         
-                        const myLikes = document.querySelectorAll('p.test i');
-                        console.log('myLikes : ' + myLikes); 
-
-                        myLikes.forEach(function(element) {
-                            element.addEventListener("click", ajoutLike);
-                        }); 
-
-                        function ajoutLike() {
-                            //console.log(this.getAttribute("data-like"));
-                            //console.log(ajoutLike);
-                            nombreLikes++; 
-                            somme++;
-                        };
+                        
 
                          
  
@@ -150,8 +139,32 @@ rawFile.onreadystatechange = function() {
             const sectionMedias = document.querySelector('.photographe-medias');
             sectionMedias.innerHTML = images;
             
+            
           }
         })//.then(function(){})
+
+        //INCREMENTATION BOUTON LIKE
+
+        const myLikes = document.querySelectorAll('.j-aime');
+        console.log(myLikes); 
+
+        myLikes.forEach(function(element) {
+            element.addEventListener("click", ajoutLike);
+        }); 
+
+        function ajoutLike() {
+            var nombreLikes = document.querySelectorAll('.likes');
+            console.log(this.getAttribute("data-like"));
+            const mesLikes = this.getAttribute("data-like");
+            console.log("nombreLikes");
+            nombreLikes++; 
+            //nombreLikes.innerHTML = '<p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="like"></i></p>';
+            somme++;
+            console.log("ajoutLike");
+
+            //console.log(this.getAttribute(""));
+        };
+
 
         const sectionGalerie = document.querySelector('.photographe-galerie');
 
@@ -259,7 +272,6 @@ function getPhotographes(callback) {
 
     }
 }
-
 
 
 

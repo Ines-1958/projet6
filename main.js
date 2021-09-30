@@ -86,7 +86,8 @@ function mesPhotographes(filtre){
 
             monHtml += `</ul>
             </nav>
-            </a>`;
+            </a>
+            </div>`;
             
             // myMain.removeChild(section);
             // myMain.appendChild(sectionFiltre);
