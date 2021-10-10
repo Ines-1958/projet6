@@ -123,9 +123,10 @@ input {
   position: fixed;
   right: 10px;
   top: 500px;
-  /*&--likes {
-            padding-left: 10px;
-        }*/
+}
+
+.photographe-galerie__texte--likes i {
+  margin-left: 5px;
 }
 
 .photographe-galerie label {
@@ -205,6 +206,8 @@ input {
   width: 100%;
   overflow: auto;
   background-color: rgba(20, 50, 92, 0.4);
+  animation-name: open-modal;
+  animation-duration: 0.9s;
 }
 
 .modale {
@@ -299,4 +302,55 @@ input {
 
 .photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
   display: none;
+}
+
+@keyframes open-modal {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#conteneur-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 2, 0.8);
+}
+
+.lightbox {
+  width: 90%;
+  margin: auto;
+  max-width: 1200px;
+  position: fixed;
+  height: 100%;
+}
+
+.lightbox__prev, .lightbox__next {
+  cursor: pointer;
+  font-size: 30px;
+  color: #901C1C;
+  position: fixed;
+  top: 50%;
+  z-index: 10;
+  left: 0;
+}
+
+.lightbox__next {
+  left: auto;
+  right: 0;
+}
+
+#fermer {
+  cursor: pointer;
+  font-size: 30px;
+  color: #901C1C;
 }

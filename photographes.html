@@ -30,8 +30,7 @@
             <section class="photographe-medias"></section>
             
             
-            
-            <aside class="conteneur-modale">
+            <div class="conteneur-modale">
                 <div class="modale">   
                     <form method="post" action="" class="formulaire">
                         <div class="formulaire__heading">
@@ -63,10 +62,20 @@
                         <input class="bouton-envoyer" id="envoiFormulaire" type="submit" value="Envoyer"/>
                     </form>
                 </div>
-            </aside>
+            </div>
+            
+            <div id="conteneur-lightbox">
+                <i class="fas fa-times" id="fermer"></i>
+                <i class="fas fa-chevron-right  lightbox__next"></i>
+                <i class="fas fa-chevron-left lightbox__prev"></i>
+                <div class="lightbox">
+                    <img src="" alt="">
+                </div>
+            </div>
+
         </main>
         <script src="photographes.js"></script>
-        <!-- <script src="formulaire.js"></script> -->
+        <!--<script src="lightbox.js"></script>-->
         
     </body>
 </html>

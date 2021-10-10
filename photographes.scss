@@ -113,9 +113,11 @@ input {
         position: fixed;
         right: 10px;
         top: 500px;
-        /*&--likes {
-            padding-left: 10px;
-        }*/
+        &--likes {
+           i{
+            margin-left: 5px;
+           } 
+        }
     }
     label {
         font-size: 14px;
@@ -182,6 +184,8 @@ height: 100%;
 width: 100%;
 overflow: auto;
 background-color: rgba(20,50,92,0.4);
+animation-name: open-modal;
+animation-duration: 0.9s;
 }
 .modale {
     //display: none;
@@ -280,6 +284,54 @@ background-color: rgba(20,50,92,0.4);
 .photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
     display: none;
 }
-// aside {
-//     display: none;
-// }
+
+@keyframes open-modal {
+    from {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+//LIGHTBOX
+#conteneur-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: rgba(0,0,2,0.8);
+}
+
+.lightbox{
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    position: fixed;
+    //background: white;
+    height: 100%;
+    &__prev, &__next {
+        cursor: pointer;
+        font-size: 30px;
+        color: #901C1C;
+        position: fixed;
+        top: 50%;
+        z-index: 10;
+        //opacity: 0.5;
+        left: 0;
+    }
+    &__next {
+        left: auto;
+        right: 0;
+    }
+} 
+#fermer{
+    cursor: pointer;
+    font-size: 30px;
+    color: #901C1C;
+}

@@ -161,6 +161,7 @@ p {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0px 5px 9px 2px #757575;
 }
 
 .photographe__titre {
