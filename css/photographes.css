@@ -108,7 +108,7 @@ input {
 @media all and (max-width: 768px) {
   .boutonContact {
     position: fixed;
-    top: 530px;
+    bottom: 0;
     left: calc(80vw - 50%);
   }
 }
@@ -122,7 +122,7 @@ input {
   border-radius: 5px;
   position: fixed;
   right: 10px;
-  top: 500px;
+  bottom: 0;
 }
 
 .photographe-galerie__texte--likes i {
@@ -323,15 +323,22 @@ input {
   right: 0;
   bottom: 0;
   overflow: auto;
-  background-color: rgba(0, 0, 2, 0.8);
+  background-color: #FFF;
 }
 
 .lightbox {
   width: 90%;
   margin: auto;
-  max-width: 1200px;
-  position: fixed;
-  height: 100%;
+  max-width: 750px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lightbox__img {
+  width: 100%;
+  object-fit: cover;
 }
 
 .lightbox__prev, .lightbox__next {
@@ -347,6 +354,17 @@ input {
 .lightbox__next {
   left: auto;
   right: 0;
+}
+
+#lightbox__video {
+  width: 800px;
+  cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+  #lightbox__video {
+    width: 337px;
+  }
 }
 
 #fermer {

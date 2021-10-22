@@ -13,7 +13,7 @@
     <body>
         <header class="heading"><!--1-->
             <a href="index.html">
-                <img src="FishEye_Photos/Logo FishEye.png" alt="" class="heading__logo" />
+                <img src="FishEye_Photos/Logo FishEye.png" alt="Lien vers page d'accueil FishEye" class="heading__logo" />
             </a>
         </header>
         <main>
@@ -66,10 +66,12 @@
             
             <div id="conteneur-lightbox">
                 <i class="fas fa-times" id="fermer"></i>
-                <i class="fas fa-chevron-right  lightbox__next"></i>
-                <i class="fas fa-chevron-left lightbox__prev"></i>
+                <i class="fas fa-chevron-right  lightbox__next" id="next"></i>
+                <i class="fas fa-chevron-left lightbox__prev" id="previous" ></i>
                 <div class="lightbox">
-                    <img src="" alt="">
+                    <img id="lightbox__image" class="lightbox__img" src="" alt="">
+                    <video id="lightbox__video"  src="" controls poster="" width=""></video>
+                    <p class="lightbox__titre"></p>
                 </div>
             </div>
 

@@ -85,22 +85,19 @@ function createPictureCard() {
                 {
                     somme = somme + mediaPhotographe.likes;
 
-
-
-
                     images += `<div class="photographe-medias__lightbox">
                           <a href="">`
                     if (mediaPhotographe.image !== undefined) {
-                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.image}" alt="" class="photographe-medias__lightbox--img" id="img-lightbox" data-img="photos"/>`
+                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.image}" alt="" class="photographe-medias__lightbox--img" data-type="photo"  data-src="${mediaPhotographe.image}" data-id="${mediaPhotographe.id}"/>`
 
                     }
                     else if (mediaPhotographe.video !== undefined) {
                         // medias+=   ` <video src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}" controls poster="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${element.id}.png/" width="100%" height="310px"></video>`
-                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}.png" alt="" class="photographe-medias__lightbox--img" id="video-lightbox" data-video="videos"/>`
+                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}.png" alt="" class="photographe-medias__lightbox--img" data-type="video" data-src="${mediaPhotographe.video}" data-id="${mediaPhotographe.id}"/>`
                     }
                     images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
-                              <p>${mediaPhotographe.title}</p>
+                              <p class="photographe-medias__lightbox--texte--titre">${mediaPhotographe.title}</p>
                               <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="${mediaPhotographe.id}"></i></p>
                           </div>       
                         </div>`
@@ -256,8 +253,15 @@ function createPictureCard() {
 const modaleLightbox = document.getElementById('conteneur-lightbox');
 const fermerModale = document.getElementById('fermer');
 //const modalePhoto = document.getElementById('img-lightbox');
-const modalePhoto = document.querySelectorAll('#img-lightbox, #video-lightbox');
-const dataImage = document.querySelectorAll("data-img");
+const modalePhoto = document.querySelectorAll('.photographe-medias__lightbox--img');
+const dataImage = document.querySelectorAll("data-type");
+const imageTitre = document.querySelectorAll('.photographe-medias__lightbox--texte--titre')
+const lightboxImage = document.getElementById('lightbox__image')
+
+const lightboxTitre = document.querySelector('.lightbox__titre');
+
+const myDataId = document.getElementsByTagName('data-id');
+
 
 // Appel fonction d'affichage de la modale
 // modalePhoto.addEventListener("click", affichageLightbox);
@@ -269,18 +273,126 @@ modalePhoto.forEach(function(photo) {
 //appel de la fonction fermerLightbox
 fermerModale.addEventListener("click", fermerLightbox);
 
+  
 //Affichage modale  
-function affichageLightbox(){
-    modaleLightbox.style.display = "block";
-    //let myPhotos = mediaList;
-    //console.log(this.getAtttibute("data-img"));
+function affichageLightbox(e){
+    e.preventDefault()
+    const imageClick = e.target;
+    
+    console.log('imageClick')
+    console.log(imageClick)
+    affImagePrincipale(imageClick)
+  
 }
+
+function affImagePrincipale(image) {
+    const id = image.getAttribute("data-id");
+    console.log(id)
+    const index = mediaList.findIndex(m => m.id === +id);
+
+    // const lightboxVideo = document.getElementById("lightbox__video")
+    // const data = document.querySelectorAll("data-type")
+    // console.log(data)
+    const dataType = image.getAttribute("data-type");
+    const dataSrc = image.getAttribute("data-src");
+    const lightboxVideo = document.getElementById("lightbox__video");
+    
+    if (dataType === 'photo') {
+        lightboxImage.src = image.getAttribute("data-src")
+        lightboxVideo.style.display = "none"
+        lightboxImage.style.display = "block"
+        console.log(dataSrc)
+    }
+    else if (dataType === 'video'){
+        const urlId = urlParams.get('id');
+        lightboxVideo.src = `FishEye_Photos/Sample Photos/PHOTOS/${urlId}/${dataSrc}`
+        lightboxVideo.style.display = "block"
+        lightboxImage.style.display = "none"
+        console.log(dataSrc)
+    }
+    
+    lightboxImage.src = image.getAttribute("src");//modification du src de l'image cliquée
+    modaleLightbox.style.display = "block";
+    setupPrevious(index);
+    setupNext(index)
+}
+
+function setupPrevious(index){
+    console.log("index :");
+    console.log(index)
+    let i = +index;//peut s'écrire aussi parseInt(index)
+    console.log("i : " + i);
+    if (i === 0) {
+        i = mediaList.length
+    }
+    i = i - 1;
+    const previous = document.getElementById('previous');
+    previous.setAttribute("data-previous", i);
+
+    previous.addEventListener("click", (e) =>  {
+        e.preventDefault
+        const recupPrevious = e.target;
+        const idImage = document.getElementById('lightbox__image')
+        
+        //const previousImage = mediaList[i];//image précédente
+        const previousImage = document.querySelectorAll(".photographe-medias__lightbox--img")[i];//image précédente
+        console.log(previousImage)
+        //const urlId = urlParams.get('id')
+        //FishEye_Photos/Sample Photos/PHOTOS/243/Travel_HillsideColor.jpg
+        //idImage.src = `FishEye_Photos/Sample Photos/PHOTOS/${urlId}/${previousImage.image} `;
+        
+        affImagePrincipale(previousImage)
+    })
+    //console.log(previous)
+}
+
+function setupNext(index) {
+    // const next = document.getElementById('next');
+    // next.setAttribute("data-next", index);
+    // next.addEventListener("click", (e) => {
+    //     e.preventDefault
+    //     const recupNext = e.target;
+    //     const idImage = document.getElementById('lightbox__image')
+    //     let i = +recupNext.getAttribute("data-next")//+ correspond à parseInt pour changer en entier le string
+    //     if (i === mediaList.length - 1){
+    //         i = -1
+    //     }
+    //     const nextImage = mediaList[i +1];
+    //     console.log(nextImage)
+    //     const urlId = urlParams.get('id')
+    //     idImage.src = `FishEye_Photos/Sample Photos/PHOTOS/${urlId}/${nextImage.image} `;
+    // })
+
+    let i = +index;//peut s'écrire aussi parseInt(index)
+    console.log("i : " + i);
+    if (i === mediaList.length -1) {
+        i = +1
+    }
+    i = i + 1;
+    console.log(i)
+    const next = document.getElementById('next');
+    next.setAttribute("data-next", i);
+
+    next.addEventListener("click", (e) =>  {
+        e.preventDefault
+        const recupNext = e.target;
+        const idImage = document.getElementById('lightbox__image')
+        const nextImage = document.querySelectorAll(".photographe-medias__lightbox--img")[i];//image suivante
+        console.log(nextImage)
+        
+        affImagePrincipale(nextImage)
+    })
+    
+
+}
+
+
 
 //fermeture de la modale
 function fermerLightbox() {
     modaleLightbox.style.display = "none";
 }
-console.log(mediaList)
+//console.log(mediaList)
 
 
 
