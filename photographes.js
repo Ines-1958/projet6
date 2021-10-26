@@ -7,7 +7,7 @@ const urlId = urlParams.get('id')
 console.log(urlId);
 
 
-function factory(json, idPhotographe) {
+function factory(json, idPhotographe, filter) {
     let result = [];
     json.forEach(function (media) {
         console.log(idPhotographe)
@@ -15,9 +15,24 @@ function factory(json, idPhotographe) {
             result.push(media);
         }
     })
+    if (filter == 1)
+    {
 
+    }
     return result;
 }
+
+
+//list.sort((a, b) => (a.color > b.color) ? 1 : -1)*
+// media.sort(function(a, b) {
+//     if (a.likes > b.likes) {
+//         return 1;
+//     }
+//     else {
+//         return -1;
+//     }
+// })
+
 let obj;
 let rawFile = new XMLHttpRequest();
 rawFile.overrideMimeType("application/json");
@@ -32,7 +47,7 @@ rawFile.onreadystatechange = function () {
     }
 }
 var mediaList;
-function createPictureCard() {
+function createPictureCard(filter) {
 
     //console.log(obj);
     const photographes = obj.photographers;
@@ -78,7 +93,7 @@ function createPictureCard() {
                       </div>`;
 
             var images = "";
-            mediaList = factory(medias, urlId);
+            mediaList = factory(medias, urlId, filter);
             //console.log(mediaList)
             mediaList.forEach(function (mediaPhotographe) {
 
@@ -97,7 +112,7 @@ function createPictureCard() {
                     }
                     images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
-                              <p class="photographe-medias__lightbox--texte--titre">${mediaPhotographe.title}</p>
+                              <p class="photographe-medias__lightbox--texte--titre" data-title="${mediaPhotographe.title}">${mediaPhotographe.title}</p>
                               <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="${mediaPhotographe.id}"></i></p>
                           </div>       
                         </div>`
@@ -258,7 +273,11 @@ const dataImage = document.querySelectorAll("data-type");
 const imageTitre = document.querySelectorAll('.photographe-medias__lightbox--texte--titre')
 const lightboxImage = document.getElementById('lightbox__image')
 
-const lightboxTitre = document.querySelector('.lightbox__titre');
+const lightboxTitre = document.getElementById('lightbox__titre');
+
+
+const dataTitle = document.querySelectorAll("data-title")
+console.log(dataTitle)
 
 const myDataId = document.getElementsByTagName('data-id');
 
@@ -279,8 +298,8 @@ function affichageLightbox(e){
     e.preventDefault()
     const imageClick = e.target;
     
-    console.log('imageClick')
     console.log(imageClick)
+    
     affImagePrincipale(imageClick)
   
 }
@@ -290,12 +309,17 @@ function affImagePrincipale(image) {
     console.log(id)
     const index = mediaList.findIndex(m => m.id === +id);
 
+    lightboxTitre.innerHTML = image.parentNode.parentNode.querySelector(".photographe-medias__lightbox--texte--titre").innerHTML;//div image et div texte(parentNode 2 fois)
+
     // const lightboxVideo = document.getElementById("lightbox__video")
     // const data = document.querySelectorAll("data-type")
     // console.log(data)
     const dataType = image.getAttribute("data-type");
     const dataSrc = image.getAttribute("data-src");
     const lightboxVideo = document.getElementById("lightbox__video");
+    // const dataTitle = image.getAttribute("data-title")
+    
+
     
     if (dataType === 'photo') {
         lightboxImage.src = image.getAttribute("data-src")
@@ -318,7 +342,6 @@ function affImagePrincipale(image) {
 }
 
 function setupPrevious(index){
-    console.log("index :");
     console.log(index)
     let i = +index;//peut s'écrire aussi parseInt(index)
     console.log("i : " + i);
@@ -366,7 +389,7 @@ function setupNext(index) {
     let i = +index;//peut s'écrire aussi parseInt(index)
     console.log("i : " + i);
     if (i === mediaList.length -1) {
-        i = +1
+        i = -1
     }
     i = i + 1;
     console.log(i)
