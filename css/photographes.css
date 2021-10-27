@@ -383,3 +383,12 @@ input {
   z-index: 10;
   top: 44px;
 }
+
+.popularite:after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  z-index: 2;
+}

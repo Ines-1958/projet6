@@ -1,13 +1,11 @@
 //récuperation id pages photographes
-//console.log('aaaaaaaaaaaaaaaaaaa')
-
 const idRecuperation = window.location.search;
 const urlParams = new URLSearchParams(idRecuperation);
 const urlId = urlParams.get('id')
 console.log(urlId);
 
 
-function factory(json, idPhotographe, filter) {
+function factory(json, idPhotographe, order) {
     let result = [];
     json.forEach(function (media) {
         console.log(idPhotographe)
@@ -15,9 +13,37 @@ function factory(json, idPhotographe, filter) {
             result.push(media);
         }
     })
-    if (filter == 1)
-    {
-
+    if (order == "popularite") {
+        result.sort(function(a, b) {
+            if (a.likes < b.likes) {//tri par ordre decroissant et a>b, ordre croissant
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        })
+    }
+    else if (order == "date") {
+        result.sort(function(a, b) {
+            if (a.date < b.date) {
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        })
+        console.log(result)
+    }
+    else if (order == "titre") {
+        result.sort(function(a, b) {
+            if (a.title < b.title) {
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        })
+        console.log(result)
     }
     return result;
 }
@@ -42,19 +68,35 @@ rawFile.onreadystatechange = function () {
         // console.log(rawFile.responseText)
         const json = rawFile.responseText;
         obj = JSON.parse(json);
-        createPictureCard();
+
+        const selectValue = document.getElementById("filtrer");
+        const triPopularite = selectValue.value;
+        console.log(triPopularite)
+
+        createPictureCard(triPopularite);
+        // const triDate = selectValue.options[1].value;
+        // console.log(triDate)
+        selectValue.addEventListener('change', (event) => {
+            const triTitre = selectValue.options[2].value;
+            createPictureCard(triTitre)
+          });
+
+        selectValue.addEventListener('change', (event) => {
+            const triDate = selectValue.options[1].value;
+            createPictureCard(triDate)
+            console.log(triDate)
+          });
+
         //console.log(obj.media)
     }
 }
 var mediaList;
-function createPictureCard(filter) {
+function createPictureCard(order) {
 
-    //console.log(obj);
     const photographes = obj.photographers;
     //console.log(photographes);
     const medias = obj.media;
-    //console.log(medias);
-    // console.log("FACTORY")
+
     // console.log(factory(medias, urlId))
     
 
@@ -93,7 +135,7 @@ function createPictureCard(filter) {
                       </div>`;
 
             var images = "";
-            mediaList = factory(medias, urlId, filter);
+            mediaList = factory(medias, urlId, order);
             //console.log(mediaList)
             mediaList.forEach(function (mediaPhotographe) {
 
@@ -112,7 +154,7 @@ function createPictureCard(filter) {
                     }
                     images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
-                              <p class="photographe-medias__lightbox--texte--titre" data-title="${mediaPhotographe.title}">${mediaPhotographe.title}</p>
+                              <p class="photographe-medias__lightbox--texte--titre">${mediaPhotographe.title}</p>
                               <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="${mediaPhotographe.id}"></i></p>
                           </div>       
                         </div>`
@@ -275,10 +317,6 @@ const lightboxImage = document.getElementById('lightbox__image')
 
 const lightboxTitre = document.getElementById('lightbox__titre');
 
-
-const dataTitle = document.querySelectorAll("data-title")
-console.log(dataTitle)
-
 const myDataId = document.getElementsByTagName('data-id');
 
 
@@ -416,7 +454,6 @@ function fermerLightbox() {
     modaleLightbox.style.display = "none";
 }
 //console.log(mediaList)
-
 
 
 }
