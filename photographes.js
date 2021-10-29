@@ -70,22 +70,19 @@ rawFile.onreadystatechange = function () {
         obj = JSON.parse(json);
 
         const selectValue = document.getElementById("filtrer");
-        const triPopularite = selectValue.value;
-        console.log(triPopularite)
+        const tri = selectValue.value;
+        console.log(tri)
 
-        createPictureCard(triPopularite);
+        createPictureCard(tri);
         // const triDate = selectValue.options[1].value;
         // console.log(triDate)
+       
         selectValue.addEventListener('change', (event) => {
-            const triTitre = selectValue.options[2].value;
-            createPictureCard(triTitre)
+            const triSelectionne = selectValue.value;
+            createPictureCard(triSelectionne)
+            console.log(triSelectionne)
           });
 
-        selectValue.addEventListener('change', (event) => {
-            const triDate = selectValue.options[1].value;
-            createPictureCard(triDate)
-            console.log(triDate)
-          });
 
         //console.log(obj.media)
     }
