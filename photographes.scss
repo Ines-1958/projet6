@@ -16,6 +16,7 @@ h1 {
 //variables scss
 $couleur-secondaire: #901C1C;
 $couleur-tertiaire: #911C1C;
+$background-color-hover: #db8876;
 
 /*label {
     display: inline-block;
@@ -94,6 +95,11 @@ input {
     margin: 20px;
     padding: 10px;
     cursor: pointer;
+    font-weight: 700;
+    &:hover {
+       background-color: $background-color-hover; 
+       color: black;
+    }
     @media all and (max-width: 768px) {
         position: fixed;
         //top: 530px;
@@ -264,6 +270,10 @@ animation-duration: 0.9s;
     border-radius: 3px;
     margin-top: 40px;
     cursor: pointer;
+    &:hover {
+        background-color: $background-color-hover;
+        color: black;
+    }
     @media all and (max-width: 768px) {
         display: block;
         margin: 40px auto;
@@ -313,25 +323,24 @@ animation-duration: 0.9s;
 }
 
 .lightbox{
-    width: 90%;
+    //width: 90%;
     margin: auto;
-    max-width: 750px;
+    max-width: 600px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100%;
+    // margin-left: 50px;
+    // margin-right: 50px;
     &__img {
         width: 100%;
+        max-width: 100%;
         height: 90%;
         object-fit: contain;
+        border-radius: 5px;
     }
-    // &__#video {
-    //     width: 800px;
-    //     @media all and (max-width: 768px) {
-    //         width: 350px;
-    //     }
-    // }
+
     &__prev, &__next {
         cursor: pointer;
         font-size: 30px;
@@ -345,12 +354,17 @@ animation-duration: 0.9s;
     &__next {
         left: auto;
         right: 0;
+        margin-right: 260px;
+    }
+    &__prev {
+        margin-left: 260px;
     }
 } 
 
 #lightbox__video {
-    width: 800px;
+    width: 500px;
     cursor: pointer;
+    border-radius: 5px;
     @media all and (max-width: 768px) {
         width: 337px;
     }
@@ -367,15 +381,91 @@ animation-duration: 0.9s;
     left: auto;
     right: 0;
     z-index: 10;
-    top: 44px
+    top: 44px;
+
+    left: auto;
+    right: 0;
+    margin-right: 260px;
 }
 
-.popularite:after {
-    //border-bottom: 2px solid black;
-    content: "";
-    width: 50px;
-    height: 3px;
-    background-color: black;
-    position: absolute;
-    z-index: 2;
+// .popularite:after {
+//     //border-bottom: 2px solid black;
+//     content: "";
+//     width: 50px;
+//     height: 3px;
+//     background-color: black;
+//     position: absolute;
+//     z-index: 2;
+// }
+
+// #filtrer { 
+//   color: white;
+//   //padding: 8px 16px;
+//   border: 1px solid transparent;
+//   border-color: transparent transparent white transparent;
+//   cursor: pointer;
+//   //user-select: none;
+// }
+
+// .popularite, .date, .titre {
+//     padding: 50px;
+// }
+
+// option {
+    
+//     position:absolute;
+//     top:100%;
+//     right:0;
+//     left:0;
+//     z-index:999;
+//     margin:50px 50px;
+//     padding:20px 20px;
+//     border:1px solid #ccc;
+    
+//     // -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+//     // -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+//     // box-shadow:0 1px 2px rgba(240, 85, 85, 0.2);
+// }
+
+select {
+    display: none;
+}
+.select-filter {
+    display: flex;
+    label {
+        margin-right: 10px;
+    }
+}
+.select-filter-selected {
+    background-color: $couleur-tertiaire;
+    position: relative;
+    color: #fff;
+    padding: 7px;
+    width: 115px;
+    &:after {
+        content:"";
+        position: absolute;
+        right: 5px;
+        border: 6px solid;
+        border-color: #fff transparent transparent transparent;
+        // top: 50%;
+        // transform: translateY(-50%);
+        top: 14px;
+        height: 0;
+    }
+    &.active:after {
+        border-color:  transparent transparent #fff transparent;
+        top: 7px;
+    }
+}
+.select-filter-items {
+    div {
+        background-color: $couleur-tertiaire;
+        padding: 7px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        cursor: pointer;
+    }
+}
+.select-hide {
+    display: none;
 }

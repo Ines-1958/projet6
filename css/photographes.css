@@ -103,6 +103,12 @@ input {
   margin: 20px;
   padding: 10px;
   cursor: pointer;
+  font-weight: 700;
+}
+
+.boutonContact:hover {
+  background-color: #db8876;
+  color: black;
 }
 
 @media all and (max-width: 768px) {
@@ -280,6 +286,11 @@ input {
   cursor: pointer;
 }
 
+.bouton-envoyer:hover {
+  background-color: #db8876;
+  color: black;
+}
+
 @media all and (max-width: 768px) {
   .bouton-envoyer {
     display: block;
@@ -327,9 +338,8 @@ input {
 }
 
 .lightbox {
-  width: 90%;
   margin: auto;
-  max-width: 750px;
+  max-width: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -339,8 +349,10 @@ input {
 
 .lightbox__img {
   width: 100%;
+  max-width: 100%;
   height: 90%;
   object-fit: contain;
+  border-radius: 5px;
 }
 
 .lightbox__prev, .lightbox__next {
@@ -356,11 +368,17 @@ input {
 .lightbox__next {
   left: auto;
   right: 0;
+  margin-right: 260px;
+}
+
+.lightbox__prev {
+  margin-left: 260px;
 }
 
 #lightbox__video {
-  width: 800px;
+  width: 500px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 @media all and (max-width: 768px) {
@@ -382,13 +400,53 @@ input {
   right: 0;
   z-index: 10;
   top: 44px;
+  left: auto;
+  right: 0;
+  margin-right: 260px;
 }
 
-.popularite:after {
+select {
+  display: none;
+}
+
+.select-filter {
+  display: flex;
+}
+
+.select-filter label {
+  margin-right: 10px;
+}
+
+.select-filter-selected {
+  background-color: #911C1C;
+  position: relative;
+  color: #fff;
+  padding: 7px;
+  width: 115px;
+}
+
+.select-filter-selected:after {
   content: "";
-  width: 50px;
-  height: 3px;
-  background-color: black;
   position: absolute;
-  z-index: 2;
+  right: 5px;
+  border: 6px solid;
+  border-color: #fff transparent transparent transparent;
+  top: 14px;
+  height: 0;
+}
+
+.select-filter-selected.active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+.select-filter-items div {
+  background-color: #911C1C;
+  padding: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.select-hide {
+  display: none;
 }

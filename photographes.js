@@ -114,8 +114,8 @@ function createPictureCard(order) {
                                   <p>${element.tagline}</p>
                               </div>
                               <a href="">
-                                  <nav class="photographe-heading__bloc--navigation">
-                                      <ul>
+                                  <nav class="photographe-heading__bloc--navigation" role="navigation">
+                                      <ul aria-label="tags du photographe">
                                       `;
             element.tags.forEach(function (tagPhotographe) {
                 header += `<li>#${tagPhotographe}</li>`;
