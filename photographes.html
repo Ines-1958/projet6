@@ -10,38 +10,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=no" />
         <title>FishEye</title>
     </head>
-    <body>
-        <header class="heading"><!--1-->
+    <body id="body">
+        <header class="heading" role="banner"><!--1-->
             <a href="index.html">
                 <img src="FishEye_Photos/Logo FishEye.png" alt="Lien vers page d'accueil FishEye" class="heading__logo" />
             </a>
         </header>
-        <main>
+        <main role="main" id="main">
             
             <section class="photographe-heading"></section>
             <section class="photographe-galerie">
-                <!--<div class="select-filter"> position : relative
-                    <div class="select-filter-selected">Popularité</div>
-                    <ul class="select-filter-selects"> Position absolute, hover il se voit
-                        <li class="select-filter-item" data-filter="popularite">Popularité</li>
-                        <li class="select-filter-item" data-filter="date">Date</li>
-                        <li class="select-filter-item" data-filter="titre">Titre</li>
-                    </ul>
-                </div>-->
+                <label>Trier par</label><!--8-->
+                
                 <div class="select-filter">
-                    <label for="filtrer">Trier par</label><!--8-->
                     <select id="filtrer" name="tri" class="hidden"><!--9-->
                         <option value="popularite" class="popularite">Popularité</option>
                         <option value="date" class="date">Date</option>
                         <option value="titre" class="titre">Titre</option>
                     </select>
-                    <!--
-                        <div class="select-filter-selected">Popularité
-                        <div>Popularité</div>
-                        <div>Date</div>
-                        <div>Titre</div>
-                    </div>
-                    -->
+                    
                 </div>  
             </section>
             <section class="photographe-medias"></section>
@@ -53,7 +40,9 @@
                         <div role="group" aria-labelledby="coordonees">
                             <div class="formulaire__heading" >
                                 <h1 class="formulaire__titre" id="formulaire__nom">Contactez-moi <br/></h1>
-                                <i class="fas fa-times close"></i>
+                                <button class="boutonClose">
+                                    <i id="close-modale" class="fas fa-times close" tabindex="0"></i>
+                                </button>
                             </div>
                             <div class="formulaire__infos">
                                 <label for="first-prenom">Prénom</label><br/>
@@ -98,6 +87,7 @@
         <script src="photographes.js"></script>
         <!--<script src="lightbox.js"></script>-->
         <script src="select.js"></script>
+        <script src="accessibilite.js"></script>
         
     </body>
 </html>

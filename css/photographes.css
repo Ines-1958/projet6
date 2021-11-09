@@ -94,6 +94,11 @@ input {
   color: #911C1C;
 }
 
+.photographe-heading__bloc--navigation ul li:hover, .photographe-heading__bloc--navigation ul li:focus {
+  background-color: #901C1C;
+  color: #ffffff;
+}
+
 .boutonContact {
   background-color: #901C1C;
   color: #FFFFFF;
@@ -106,7 +111,7 @@ input {
   font-weight: 700;
 }
 
-.boutonContact:hover {
+.boutonContact:hover, .boutonContact:focus {
   background-color: #db8876;
   color: black;
 }
@@ -117,6 +122,10 @@ input {
     bottom: 0;
     left: calc(80vw - 50%);
   }
+}
+
+.photographe-galerie {
+  display: flex;
 }
 
 .photographe-galerie__texte {
@@ -136,8 +145,9 @@ input {
 }
 
 .photographe-galerie label {
-  font-size: 14px;
+  font-size: 16px;
   color: black;
+  margin-right: 10px;
 }
 
 .photographe-galerie select {
@@ -410,17 +420,20 @@ select {
 }
 
 .select-filter {
-  display: flex;
+  position: relative;
+  background-color: #901C1C;
+  padding: 0px 10PX;
+  color: #FFFFFF;
+  border-radius: 5px;
 }
 
-.select-filter label {
-  margin-right: 10px;
+.select-filter:hover {
+  background-color: #db8876;
 }
 
 .select-filter-selected {
-  background-color: #911C1C;
   position: relative;
-  color: #fff;
+  color: #FFFFFF;
   padding: 7px;
   width: 115px;
 }
@@ -441,10 +454,10 @@ select {
 }
 
 .select-filter-items div {
-  background-color: #911C1C;
   padding: 7px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
+  width: 115px;
 }
 
 .select-hide {

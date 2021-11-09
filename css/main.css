@@ -94,6 +94,11 @@ p {
   cursor: pointer;
 }
 
+.heading__navigation--taggs li:hover, .heading__navigation--taggs li:focus {
+  background-color: #901C1C;
+  color: #ffffff;
+}
+
 @media all and (max-width: 768px) {
   .heading h1 {
     order: 2;
@@ -181,6 +186,11 @@ p {
   margin: 2px;
   font-size: 15px;
   color: #901C1C;
+}
+
+.main-navigation__taggs--li:hover, .main-navigation__taggs--li:focus {
+  background-color: #901C1C;
+  color: #ffffff;
 }
 
 .photographes_old {

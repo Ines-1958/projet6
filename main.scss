@@ -21,6 +21,8 @@ p {
 
 //variables scss
 $couleur-primaire: #000000;
+$couleur-secondaire: #901C1C;
+$couleur-text-hover: #ffffff;
 
 .haut-page {
     color: $couleur-primaire;
@@ -72,6 +74,11 @@ $couleur-primaire: #000000;
                 margin: 2px;
                 font-size: 13px;
                 cursor: pointer;
+                &:hover, 
+                &:focus {
+                    background-color: $couleur-secondaire;
+                    color: $couleur-text-hover;
+                }
             }
         }
     }
@@ -147,7 +154,12 @@ $couleur-primaire: #000000;
             border-radius: 11px;
             margin: 2px;
             font-size: 15px;
-            color: #901C1C;
+            color: $couleur-secondaire;
+            &:hover, 
+            &:focus {
+                background-color: $couleur-secondaire;
+                color: $couleur-text-hover;
+            }
         
         }
     }

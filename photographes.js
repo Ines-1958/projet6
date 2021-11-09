@@ -13,7 +13,7 @@ function factory(json, idPhotographe, order) {
             result.push(media);
         }
     })
-    if (order == "popularite") {
+    if (order == "Popularité") {
         result.sort(function(a, b) {
             if (a.likes < b.likes) {//tri par ordre decroissant et a>b, ordre croissant
                 return 1;
@@ -23,7 +23,7 @@ function factory(json, idPhotographe, order) {
             }
         })
     }
-    else if (order == "date") {
+    else if (order == "Date") {
         result.sort(function(a, b) {
             if (a.date < b.date) {
                 return 1;
@@ -34,9 +34,9 @@ function factory(json, idPhotographe, order) {
         })
         console.log(result)
     }
-    else if (order == "titre") {
+    else if (order == "Titre") {
         result.sort(function(a, b) {
-            if (a.title < b.title) {
+            if (a.title > b.title) {
                 return 1;
             }
             else {
@@ -71,7 +71,7 @@ rawFile.onreadystatechange = function () {
 
         const selectValue = document.getElementById("filtrer");
         const tri = selectValue.value;
-        console.log(tri)
+        //console.log(tri)
 
         createPictureCard(tri);
         // const triDate = selectValue.options[1].value;
@@ -89,7 +89,7 @@ rawFile.onreadystatechange = function () {
 }
 var mediaList;
 function createPictureCard(order) {
-
+console.log(order)
     const photographes = obj.photographers;
     //console.log(photographes);
     const medias = obj.media;
@@ -142,12 +142,12 @@ function createPictureCard(order) {
                     images += `<div class="photographe-medias__lightbox">
                           <a href="">`
                     if (mediaPhotographe.image !== undefined) {
-                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.image}" alt="" class="photographe-medias__lightbox--img" data-type="photo"  data-src="${mediaPhotographe.image}" data-id="${mediaPhotographe.id}"/>`
+                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.image}" alt="${mediaPhotographe.title}, vue rapprochée" class="photographe-medias__lightbox--img" data-type="photo"  data-src="${mediaPhotographe.image}" data-id="${mediaPhotographe.id}"/>`
 
                     }
                     else if (mediaPhotographe.video !== undefined) {
                         // medias+=   ` <video src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}" controls poster="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${element.id}.png/" width="100%" height="310px"></video>`
-                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}.png" alt="" class="photographe-medias__lightbox--img" data-type="video" data-src="${mediaPhotographe.video}" data-id="${mediaPhotographe.id}"/>`
+                        images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.video}.png" alt="${mediaPhotographe.video}.png" class="photographe-medias__lightbox--img" data-type="video" data-src="${mediaPhotographe.video}" data-id="${mediaPhotographe.id}"/>`
                     }
                     images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
@@ -228,28 +228,106 @@ function createPictureCard(order) {
 
     //VERIFICATION ET VALIDATION DU FORMULAIRE
 
-    var modaleFormulaire = document.querySelector('.conteneur-modale');
-    const modaleClose = document.querySelector('.close');
+//     var modaleFormulaire = document.querySelector('.conteneur-modale');
+//     const modaleClose = document.querySelector('.close');
     
-    //window.addEventListener('DOMContentLoaded', function(){
-    const modaleBouton = document.querySelector('.boutonContact');
+//     //window.addEventListener('DOMContentLoaded', function(){
+//     const modaleBouton = document.querySelector('.boutonContact');
 
-    // Appel fonction d'affichage de la modale
-    modaleBouton.addEventListener("click", affichageModale);
+//     // Appel fonction d'affichage de la modale
+//     modaleBouton.addEventListener("click", affichageModale);
 
-    //appel de la fonction close modal
-    modaleClose.addEventListener("click", closeModal);
+//     //appel de la fonction close modal
+//     modaleClose.addEventListener("click", closeModal);
 
-    //Affichage modale
-    function affichageModale() {
-        modaleFormulaire.style.display = "block";
+//     //Affichage modale
+//     function affichageModale() {
+//         modaleFormulaire.style.display = "block";
+//     }
+
+//     //fermeture de la modale
+//     function closeModal() {
+//         modaleFormulaire.style.display = "none";
+//     }
+
+
+//     //ACCESSIBILITE
+//     const body = document.getElementById("body");
+//     modaleBouton;
+//     const main = document.getElementById("main");
+//     modaleFormulaire;
+//     const modaleTitre = document.querySelector(".formulaire__titre")
+//     modaleClose;
+
+
+//     const onOpenModal = () => {
+//         main.setAttribute('aria-hidden', 'true');
+//         modaleFormulaire.setAttribute('aria-hidden', 'false');
+//         body.classList.add('no-scroll');
+//         //modaleFormulaire.style.display = 'flex';
+//         modaleClose.focus();
+//     }
+//     const onCloseModal = () => {
+//         main.setAttribute('aria-hidden', 'false');
+//         modaleFormulaire.setAttribute('aria-hidden', 'true');
+//         body.classList.remove('no-scroll');
+//         //modaleFormulaire.style.display = 'none';
+//         modaleBouton.focus();
+//     }
+
+//    // Event
+//    modaleBouton.addEventListener("click", onOpenModal);
+//    modaleClose.addEventListener("click", onCloseModal);
+
+//    //Fermeture modale avec echap
+//    document.addEventListener('keydown', (event) => {
+//     if (event.key === 'Escape') {
+//       onCloseModal;
+//     }
+//   })
+
+var modaleFormulaire = document.querySelector('.conteneur-modale');//4
+//const modaleClose = document.getElementById('close-modale');6
+//const modaleClose = document.querySelector(".close")//6
+const modaleClose = document.querySelector(".boutonClose")
+const body = document.getElementById("body");//1
+const main = document.getElementById("main");//3
+const modaleTitre = document.querySelector(".formulaire__titre")//5
+const modaleBouton = document.querySelector('.boutonContact');//2
+
+// Appel fonction d'affichage de la modale
+modaleBouton.addEventListener("click", affichageModale);
+
+//appel de la fonction close modal
+modaleClose.addEventListener("click", closeModal);
+
+//Affichage modale
+function affichageModale() {
+    modaleFormulaire.style.display = "block";
+    main.setAttribute('aria-hidden', 'true');
+    modaleFormulaire.setAttribute('aria-hidden', 'false');
+    body.classList.add('no-scroll');
+    modaleClose.focus();
+    console.log(modaleClose.focus())
+}
+
+//fermeture de la modale
+function closeModal() {
+    modaleFormulaire.style.display = "none";
+    main.setAttribute('aria-hidden', 'false');
+    modaleFormulaire.setAttribute('aria-hidden', 'true');
+    body.classList.remove('no-scroll');
+    modaleBouton.focus();
+}
+//Fermeture modale avec echap
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        console.log("formulaire")
+        closeModal(modaleClose);
     }
+})
 
-    //fermeture de la modale
-    function closeModal() {
-        modaleFormulaire.style.display = "none";
-    }
-
+    //FIN ACCESSIBILITE
 
     //VERIFICATION FORMULAIRE
 
@@ -405,22 +483,6 @@ function setupPrevious(index){
 }
 
 function setupNext(index) {
-    // const next = document.getElementById('next');
-    // next.setAttribute("data-next", index);
-    // next.addEventListener("click", (e) => {
-    //     e.preventDefault
-    //     const recupNext = e.target;
-    //     const idImage = document.getElementById('lightbox__image')
-    //     let i = +recupNext.getAttribute("data-next")//+ correspond à parseInt pour changer en entier le string
-    //     if (i === mediaList.length - 1){
-    //         i = -1
-    //     }
-    //     const nextImage = mediaList[i +1];
-    //     console.log(nextImage)
-    //     const urlId = urlParams.get('id')
-    //     idImage.src = `FishEye_Photos/Sample Photos/PHOTOS/${urlId}/${nextImage.image} `;
-    // })
-
     let i = +index;//peut s'écrire aussi parseInt(index)
     console.log("i : " + i);
     if (i === mediaList.length -1) {
@@ -470,6 +532,91 @@ function getPhotographes(callback) {
 
     }
 }
+
+
+    //Récuperation du select
+    const selectElement = document.querySelector("select");
+
+    //Récupurétion 1ère div "select-filter"
+    const selectDiv = document.querySelector(".select-filter");
+    console.log(selectDiv);
+    //Création nouveau select
+    const newFilterSelected = document.createElement("div");
+
+    //Ajout de la classe "new-select"
+    newFilterSelected.classList.add("select-filter-selected");
+
+    //Ajout de l'option actuellement choisie dans le select
+    newFilterSelected.innerHTML = selectElement.options[selectElement.selectedIndex].innerHTML;
+
+    //Création de l'élément dans le DOM
+    selectDiv.appendChild(newFilterSelected);
+
+    //Création menu déroulant
+    const menuDeroulant = document.createElement("div");
+    menuDeroulant.classList.add("select-filter-items", "select-hide");
+
+    //Boucle sur les options dans le select et les copier dans la div
+    for(let option of selectElement.options) {
+        console.log(option);
+        //Création div pour cette option
+        const newOption = document.createElement("div");
+
+        //on copie le contenu de l'option
+        newOption.innerHTML = option.innerHTML;
+        newOption.setAttribute("data-filter", option.innerHTML);
+
+        //ajout de l'écouteur d'événement "clic" sur l'option
+        newOption.addEventListener("click", (event) => {
+            //boucle sur chacune des options du select original
+            //const oprtionTriee = event.target.getAttribute("toto")
+            //console.log(event.target.getAttribute("toto"))
+            const filtreSelectionne = event.target.getAttribute("data-filter");
+
+            createPictureCard(filtreSelectionne);
+            
+            for(let option of selectElement.options) {
+                console.log(option.innerHTML);
+               //console.log(this.innerHTML)
+               console.log("TEST THIS");
+                    console.log(filtreSelectionne);
+                    console.log(newFilterSelected.innerHTML);
+                if(option.innerHTML !== this.innerHTML) {
+                    
+                    //on active la bonne option dans le select
+                    selectElement.selectedIndex = option.index;
+                    //console.log(selectElement);
+                    
+                    //on change le contenu et le titre du newFilterSelected
+                    console.log("TEST THIS");
+                    console.log(this);
+                    newFilterSelected.innerHTML = filtreSelectionne;
+                    createPictureCard(filtreSelectionne);
+                    break;
+                }
+            }
+            //on simule un clic sur newFilterSelected
+            newFilterSelected.click();
+        })
+
+        //Ajout de l'option dans le menu Deroulant
+        menuDeroulant.appendChild(newOption);
+    }
+
+    //Affichage du menu
+    selectDiv.appendChild(menuDeroulant);
+
+    //Ajout de l'écouteur d'événements click sur newFilterSelected
+    newFilterSelected.addEventListener("click", function(e) {
+        e.stopPropagation();
+        //retrait du select-hide du menu
+        this.nextSibling.classList.toggle("select-hide");
+        //ajout de la classe active à newFilterSelected pour changer le sens de la flèche
+        this.classList.toggle("active");
+    })
+
+    
+
 
 
 

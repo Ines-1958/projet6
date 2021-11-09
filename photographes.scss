@@ -17,6 +17,8 @@ h1 {
 $couleur-secondaire: #901C1C;
 $couleur-tertiaire: #911C1C;
 $background-color-hover: #db8876;
+$couleur-text-hover: #ffffff;
+$border-radius-bloc: 5px;
 
 /*label {
     display: inline-block;
@@ -81,6 +83,11 @@ input {
                     margin: 2px;
                     font-size: 14px;
                     color: $couleur-tertiaire;
+                    &:hover, 
+                    &:focus {
+                        background-color: $couleur-secondaire;
+                        color: $couleur-text-hover;
+                    }
                 }
             }
         }
@@ -96,7 +103,8 @@ input {
     padding: 10px;
     cursor: pointer;
     font-weight: 700;
-    &:hover {
+    &:hover,
+    &:focus {
        background-color: $background-color-hover; 
        color: black;
     }
@@ -109,7 +117,7 @@ input {
     }
 }
 .photographe-galerie {
-    
+    display: flex;
     &__texte {
         width: 170px;
         background-color: #DB8876;
@@ -128,8 +136,9 @@ input {
         }
     }
     label {
-        font-size: 14px;
+        font-size: 16px;
         color: black;
+        margin-right: 10px;
     }
     select {
         background-color: $couleur-tertiaire;
@@ -382,66 +391,37 @@ animation-duration: 0.9s;
     right: 0;
     z-index: 10;
     top: 44px;
-
     left: auto;
     right: 0;
     margin-right: 260px;
 }
 
-// .popularite:after {
-//     //border-bottom: 2px solid black;
-//     content: "";
-//     width: 50px;
-//     height: 3px;
-//     background-color: black;
-//     position: absolute;
-//     z-index: 2;
-// }
-
-// #filtrer { 
-//   color: white;
-//   //padding: 8px 16px;
-//   border: 1px solid transparent;
-//   border-color: transparent transparent white transparent;
-//   cursor: pointer;
-//   //user-select: none;
-// }
-
-// .popularite, .date, .titre {
-//     padding: 50px;
-// }
-
-// option {
-    
-//     position:absolute;
-//     top:100%;
-//     right:0;
-//     left:0;
-//     z-index:999;
-//     margin:50px 50px;
-//     padding:20px 20px;
-//     border:1px solid #ccc;
-    
-//     // -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
-//     // -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
-//     // box-shadow:0 1px 2px rgba(240, 85, 85, 0.2);
-// }
 
 select {
     display: none;
 }
 .select-filter {
-    display: flex;
-    label {
-        margin-right: 10px;
+    position: relative;
+    background-color: $couleur-secondaire;
+    padding: 0px 10PX;
+    color: #FFFFFF;
+    border-radius: $border-radius-bloc;
+    &:hover {
+        background-color: $background-color-hover; 
+        //color: black;
     }
+    // label {
+    //     margin-right: 10px;
+    // }
 }
 .select-filter-selected {
-    background-color: $couleur-tertiaire;
+    // background-color: $couleur-tertiaire;
     position: relative;
-    color: #fff;
+    color: #FFFFFF;
     padding: 7px;
     width: 115px;
+    // border-top-left-radius: $border-radius-bloc;
+    // border-top-right-radius: $border-radius-bloc;   
     &:after {
         content:"";
         position: absolute;
@@ -459,11 +439,17 @@ select {
     }
 }
 .select-filter-items {
+    // position: absolute;
+    // left: 0;
+    // top: 100%;
+
     div {
-        background-color: $couleur-tertiaire;
+        // background-color: $couleur-tertiaire;
         padding: 7px;
         border-bottom: 1px solid rgba(255,255,255,0.2);
         cursor: pointer;
+        width: 115px;
+
     }
 }
 .select-hide {
