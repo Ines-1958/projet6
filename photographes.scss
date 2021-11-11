@@ -6,6 +6,9 @@ body {
 body a {
     text-decoration: none;
 }
+body a:focus-visible {
+    outline: 2px dashed #D3573C;
+}
 body ul {
     list-style-type: none;
 }
@@ -186,6 +189,10 @@ input {
             height: 310px;
             object-fit: cover;
             border-radius: 5px;
+            // &:focus,
+            // &:hover {
+            //     border: 2px dashed gold;
+            // }
         }
     }
 }
@@ -402,53 +409,73 @@ select {
 }
 .select-filter {
     position: relative;
-    background-color: $couleur-secondaire;
+    //background-color: $couleur-secondaire;
     padding: 0px 10PX;
     color: #FFFFFF;
     border-radius: $border-radius-bloc;
-    &:hover {
-        background-color: $background-color-hover; 
-        //color: black;
+    &:hover,
+    &:focus-visible {
+        color: black;
+        outline: 2px dashed green;
+        background-color: $background-color-hover;
     }
+    // &:hover {
+    //     background-color: $background-color-hover; 
+    //     //color: black;
+    // }
     // label {
     //     margin-right: 10px;
     // }
 }
 .select-filter-selected {
-    // background-color: $couleur-tertiaire;
+    background-color: $couleur-tertiaire;
     position: relative;
     color: #FFFFFF;
     padding: 7px;
     width: 115px;
-    // border-top-left-radius: $border-radius-bloc;
-    // border-top-right-radius: $border-radius-bloc;   
+    border-radius: 5px;
     &:after {
-        content:"";
+        content:"\f107";
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        font-size: 19px;
         position: absolute;
         right: 5px;
-        border: 6px solid;
-        border-color: #fff transparent transparent transparent;
         // top: 50%;
         // transform: translateY(-50%);
-        top: 14px;
+        top: 8px;
         height: 0;
     }
     &.active:after {
-        border-color:  transparent transparent #fff transparent;
+        content: "\f106";
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
         top: 7px;
     }
 }
 .select-filter-items {
-    // position: absolute;
-    // left: 0;
-    // top: 100%;
-
+    position: absolute;
+    left: 0;
+    //top: 100%;
+    background-color: $couleur-tertiaire;
+    top: 0;
+    border-radius: 5px;
+    &:after {
+        content:"\f106";
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        font-size: 19px;
+        position: absolute;
+        top: 8px;
+        right: 5px;
+    }
+    
     div {
         // background-color: $couleur-tertiaire;
         padding: 7px;
         border-bottom: 1px solid rgba(255,255,255,0.2);
         cursor: pointer;
-        width: 115px;
+        width: 125px;
 
     }
 }

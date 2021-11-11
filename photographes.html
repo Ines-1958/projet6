@@ -35,7 +35,7 @@
             
             
             <div class="conteneur-modale" role="dialog" aria-hidden="true">
-                <div class="modale">   
+                <div class="modale" role="document">   
                     <form method="post" action="" class="formulaire">
                         <div role="group" aria-labelledby="coordonees">
                             <div class="formulaire__heading" >
@@ -73,11 +73,13 @@
             </div>
             
             <div id="conteneur-lightbox" role="dialog" aria-hidden="true">
-                <i class="fas fa-times" id="fermer"></i>
+                <button class="closeButton">
+                    <i class="fas fa-times" id="fermer"></i>
+                </button>
                 <i class="fas fa-chevron-right  lightbox__next" id="next"></i>
                 <i class="fas fa-chevron-left lightbox__prev" id="previous" ></i>
-                <div class="lightbox">
-                    <img id="lightbox__image" class="lightbox__img" src="" alt="">
+                <div class="lightbox" role="document">
+                    <img id="lightbox__image" class="lightbox__img" src="" alt="images de la galierie du photographe">
                     <video id="lightbox__video"  src="" controls poster="" width=""></video>
                     <p id="lightbox__titre"></p>
                 </div>

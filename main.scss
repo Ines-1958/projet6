@@ -24,6 +24,11 @@ $couleur-primaire: #000000;
 $couleur-secondaire: #901C1C;
 $couleur-text-hover: #ffffff;
 
+.en-tete-page {
+    display:flex;
+    justify-content: center;
+    
+}
 .haut-page {
     color: $couleur-primaire;
     padding: 6px 8px;
@@ -31,7 +36,10 @@ $couleur-text-hover: #ffffff;
     border-radius: 5px;
     font-size: 13px;
     font-weight: 700;
-    margin: 0 45%; 
+    display: flex;
+    flex-wrap: nowrap;
+    width: 132px;
+
     @media all and (max-width: 768px) {
         display: none;
     }

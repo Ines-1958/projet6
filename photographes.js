@@ -70,7 +70,7 @@ rawFile.onreadystatechange = function () {
         obj = JSON.parse(json);
 
         const selectValue = document.getElementById("filtrer");
-        const tri = selectValue.value;
+        const tri = "Popularité";
         //console.log(tri)
 
         createPictureCard(tri);
@@ -118,17 +118,17 @@ console.log(order)
                                       <ul aria-label="tags du photographe">
                                       `;
             element.tags.forEach(function (tagPhotographe) {
-                header += `<li>#${tagPhotographe}</li>`;
+                header += `<li tabindex="0">#${tagPhotographe}</li>`;
             });
             header += ` 
                                       </ul>
                                   </nav>
                               </a>
                           </div>
-                          <button class="boutonContact btn">Contactez-moi</button>
+                          <button class="boutonContact btn" aria-haspopup="true">Contactez-moi</button>
                       </div>
                       <div>
-                          <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${element.portrait}" alt="" class="heading-photo">
+                          <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${element.portrait}" alt="alt="Portrait réprésentatif de ${element.name}" class="heading-photo">
                       </div>`;
 
             var images = "";
@@ -140,7 +140,7 @@ console.log(order)
                     somme = somme + mediaPhotographe.likes;
 
                     images += `<div class="photographe-medias__lightbox">
-                          <a href="">`
+                          <a href="#" role="button">`
                     if (mediaPhotographe.image !== undefined) {
                         images += ` <img src="FishEye_Photos/Sample Photos/PHOTOS/${element.id}/${mediaPhotographe.image}" alt="${mediaPhotographe.title}, vue rapprochée" class="photographe-medias__lightbox--img" data-type="photo"  data-src="${mediaPhotographe.image}" data-id="${mediaPhotographe.id}"/>`
 
@@ -152,7 +152,7 @@ console.log(order)
                     images += ` </a>
                           <div class="photographe-medias__lightbox--texte">
                               <p class="photographe-medias__lightbox--texte--titre">${mediaPhotographe.title}</p>
-                              <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="${mediaPhotographe.id}"></i></p>
+                              <p class="test"><span class="likes">${mediaPhotographe.likes}</span><i class="fas fa-heart j-aime" data-like="${mediaPhotographe.id}" role="button" tabindex="0"></i></p>
                           </div>       
                         </div>`
 
@@ -226,65 +226,7 @@ console.log(order)
 
 
 
-    //VERIFICATION ET VALIDATION DU FORMULAIRE
-
-//     var modaleFormulaire = document.querySelector('.conteneur-modale');
-//     const modaleClose = document.querySelector('.close');
-    
-//     //window.addEventListener('DOMContentLoaded', function(){
-//     const modaleBouton = document.querySelector('.boutonContact');
-
-//     // Appel fonction d'affichage de la modale
-//     modaleBouton.addEventListener("click", affichageModale);
-
-//     //appel de la fonction close modal
-//     modaleClose.addEventListener("click", closeModal);
-
-//     //Affichage modale
-//     function affichageModale() {
-//         modaleFormulaire.style.display = "block";
-//     }
-
-//     //fermeture de la modale
-//     function closeModal() {
-//         modaleFormulaire.style.display = "none";
-//     }
-
-
-//     //ACCESSIBILITE
-//     const body = document.getElementById("body");
-//     modaleBouton;
-//     const main = document.getElementById("main");
-//     modaleFormulaire;
-//     const modaleTitre = document.querySelector(".formulaire__titre")
-//     modaleClose;
-
-
-//     const onOpenModal = () => {
-//         main.setAttribute('aria-hidden', 'true');
-//         modaleFormulaire.setAttribute('aria-hidden', 'false');
-//         body.classList.add('no-scroll');
-//         //modaleFormulaire.style.display = 'flex';
-//         modaleClose.focus();
-//     }
-//     const onCloseModal = () => {
-//         main.setAttribute('aria-hidden', 'false');
-//         modaleFormulaire.setAttribute('aria-hidden', 'true');
-//         body.classList.remove('no-scroll');
-//         //modaleFormulaire.style.display = 'none';
-//         modaleBouton.focus();
-//     }
-
-//    // Event
-//    modaleBouton.addEventListener("click", onOpenModal);
-//    modaleClose.addEventListener("click", onCloseModal);
-
-//    //Fermeture modale avec echap
-//    document.addEventListener('keydown', (event) => {
-//     if (event.key === 'Escape') {
-//       onCloseModal;
-//     }
-//   })
+//VERIFICATION ET VALIDATION DU FORMULAIRE
 
 var modaleFormulaire = document.querySelector('.conteneur-modale');//4
 //const modaleClose = document.getElementById('close-modale');6
@@ -322,7 +264,6 @@ function closeModal() {
 //Fermeture modale avec echap
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
-        console.log("formulaire")
         closeModal(modaleClose);
     }
 })
@@ -384,6 +325,7 @@ document.addEventListener('keydown', (event) => {
 //CREATION LIGHTBOX
 const modaleLightbox = document.getElementById('conteneur-lightbox');
 const fermerModale = document.getElementById('fermer');
+//const fermerModale = document.querySelector('.closeButton')
 //const modalePhoto = document.getElementById('img-lightbox');
 const modalePhoto = document.querySelectorAll('.photographe-medias__lightbox--img');
 const dataImage = document.querySelectorAll("data-type");
@@ -402,37 +344,84 @@ modalePhoto.forEach(function(photo) {
     photo.addEventListener("click", (e) => affichageLightbox(e));
 })
 
+
+// document.addEventListener('keydown', (event) => {
+//     if (key === 13) {
+//         console.log("formulaire")
+//         affichageLightbox();
+//     }
+// })
+// document.addEventListener('keydown', (event) => {
+//     const keyCode = event.keyCode ? event.keyCode : event.which
+  
+//     if (keyCode === 39) {
+//         setupNext()
+//     } else if (keyCode === 37) {
+//         setupPrevious()
+//     }else if (keyCode === 13) {
+//         affichageLightbox(modalePhoto)
+//         console.log("enteeeeeeeerrrrrrrr");
+//     }
+//  })
+ //Fermeture modale avec echap
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+       fermerLightbox();
+    }
+    
+})
+document.addEventListener('keydown', (e) => {
+    const keyCode = e.keyCode ? e.keyCode : e.which
+        if (keyCode === 13) {
+            e.preventDefault
+            
+            affichageLightbox(e.target.querySelector('img'), true)
+            // console.log(e.target.children)
+            // console.log("enteeeeeeeerrrrrrrr");
+        }
+        else if (keyCode === 39) {
+            setupNext(e)
+            console.log("suivant")
+        } 
+        else if (keyCode === 37) {
+            console.log(e)
+            console.log(e.target.parentNode)
+                // let test = e.target.parentNode;
+                // e.src = e.target.parentNode;
+                // console.log(e.src)
+                setupPrevious()
+                
+            }
+        })
+        
+
+
 //appel de la fonction fermerLightbox
 fermerModale.addEventListener("click", fermerLightbox);
 
   
 //Affichage modale  
-function affichageLightbox(e){
-    e.preventDefault()
-    const imageClick = e.target;
-    
-    console.log(imageClick)
-    
-    affImagePrincipale(imageClick)
+function affichageLightbox(e, fromAccessibility){
+    if (fromAccessibility) {
+        //console.log(e.getAttribute("data-id"))
+        affImagePrincipale(e)
+    }
+    affImagePrincipale(e.target)
   
 }
 
 function affImagePrincipale(image) {
+    //console.log(image) 
+    if(image) { 
     const id = image.getAttribute("data-id");
     console.log(id)
     const index = mediaList.findIndex(m => m.id === +id);
 
     lightboxTitre.innerHTML = image.parentNode.parentNode.querySelector(".photographe-medias__lightbox--texte--titre").innerHTML;//div image et div texte(parentNode 2 fois)
 
-    // const lightboxVideo = document.getElementById("lightbox__video")
-    // const data = document.querySelectorAll("data-type")
-    // console.log(data)
     const dataType = image.getAttribute("data-type");
     const dataSrc = image.getAttribute("data-src");
     const lightboxVideo = document.getElementById("lightbox__video");
-    // const dataTitle = image.getAttribute("data-title")
-    
-
     
     if (dataType === 'photo') {
         lightboxImage.src = image.getAttribute("data-src")
@@ -452,12 +441,13 @@ function affImagePrincipale(image) {
     modaleLightbox.style.display = "block";
     setupPrevious(index);
     setupNext(index)
+    }
 }
 
 function setupPrevious(index){
-    console.log(index)
+    //console.log(index)
     let i = +index;//peut s'écrire aussi parseInt(index)
-    console.log("i : " + i);
+    //console.log("i : " + i);
     if (i === 0) {
         i = mediaList.length
     }
@@ -478,18 +468,21 @@ function setupPrevious(index){
         //idImage.src = `FishEye_Photos/Sample Photos/PHOTOS/${urlId}/${previousImage.image} `;
         
         affImagePrincipale(previousImage)
+        
     })
     //console.log(previous)
+    
+   
 }
 
 function setupNext(index) {
     let i = +index;//peut s'écrire aussi parseInt(index)
-    console.log("i : " + i);
+    //console.log("i : " + i);
     if (i === mediaList.length -1) {
         i = -1
     }
     i = i + 1;
-    console.log(i)
+    //console.log(i)
     const next = document.getElementById('next');
     next.setAttribute("data-next", i);
 
@@ -542,6 +535,7 @@ function getPhotographes(callback) {
     console.log(selectDiv);
     //Création nouveau select
     const newFilterSelected = document.createElement("div");
+    //const newFilterSelected = document.createElement("button");
 
     //Ajout de la classe "new-select"
     newFilterSelected.classList.add("select-filter-selected");
@@ -554,7 +548,9 @@ function getPhotographes(callback) {
 
     //Création menu déroulant
     const menuDeroulant = document.createElement("div");
+    //menuDeroulant.classList.add("select-filter-items", "select-hide");
     menuDeroulant.classList.add("select-filter-items", "select-hide");
+    
 
     //Boucle sur les options dans le select et les copier dans la div
     for(let option of selectElement.options) {
@@ -568,28 +564,24 @@ function getPhotographes(callback) {
 
         //ajout de l'écouteur d'événement "clic" sur l'option
         newOption.addEventListener("click", (event) => {
+            menuDeroulant.classList.remove("select-hide");
             //boucle sur chacune des options du select original
-            //const oprtionTriee = event.target.getAttribute("toto")
-            //console.log(event.target.getAttribute("toto"))
             const filtreSelectionne = event.target.getAttribute("data-filter");
+            
 
             createPictureCard(filtreSelectionne);
             
             for(let option of selectElement.options) {
-                console.log(option.innerHTML);
-               //console.log(this.innerHTML)
-               console.log("TEST THIS");
+                    console.log(option.innerHTML);
                     console.log(filtreSelectionne);
                     console.log(newFilterSelected.innerHTML);
                 if(option.innerHTML !== this.innerHTML) {
                     
                     //on active la bonne option dans le select
                     selectElement.selectedIndex = option.index;
-                    //console.log(selectElement);
                     
                     //on change le contenu et le titre du newFilterSelected
-                    console.log("TEST THIS");
-                    console.log(this);
+
                     newFilterSelected.innerHTML = filtreSelectionne;
                     createPictureCard(filtreSelectionne);
                     break;
@@ -611,6 +603,8 @@ function getPhotographes(callback) {
         e.stopPropagation();
         //retrait du select-hide du menu
         this.nextSibling.classList.toggle("select-hide");
+        //this.classList.add("select-hide");
+        
         //ajout de la classe active à newFilterSelected pour changer le sens de la flèche
         this.classList.toggle("active");
     })

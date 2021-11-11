@@ -27,7 +27,7 @@ function mesPhotographes(filtre){
                     <div class="photographe">
                         <a href="photographes.html?id=${photographes.id}">
                             <div class="photographe__image">
-                                <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${photographes.portrait}" alt="" class="photographe__image--img">
+                                <img src="FishEye_Photos/Sample Photos/Photographers ID Photos/${photographes.portrait}" alt="Portrait réprésentatif du photographe ${photographes.name}" class="photographe__image--img">
                             </div>
                             <h2 class="photographe__titre">${photographes.name}</h2>
                         </a>
@@ -39,10 +39,10 @@ function mesPhotographes(filtre){
                     </div>
                     <a href="">
                         <nav class="main-navigation">
-                            <ul class="main-navigation__taggs">
+                            <ul class="main-navigation__taggs" aria-label="tags du photographe">
             `; console.log("TOTO")
             photographes.tags.forEach(function(tagPhotographe) {
-                monHtml += `<li class="main-navigation__taggs--li">#${tagPhotographe}</li>`;
+                monHtml += `<li class="main-navigation__taggs--li" >#${tagPhotographe}</li>`;
                 });
 
             monHtml += `</ul>

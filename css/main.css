@@ -24,6 +24,11 @@ p {
   margin: 0;
 }
 
+.en-tete-page {
+  display: flex;
+  justify-content: center;
+}
+
 .haut-page {
   color: #000000;
   padding: 6px 8px;
@@ -31,7 +36,9 @@ p {
   border-radius: 5px;
   font-size: 13px;
   font-weight: 700;
-  margin: 0 45%;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 132px;
 }
 
 @media all and (max-width: 768px) {
