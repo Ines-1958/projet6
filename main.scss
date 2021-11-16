@@ -50,8 +50,14 @@ $couleur-text-hover: #ffffff;
     align-items: baseline;
     justify-content:space-evenly;
     @media all and (max-width: 768px) {
-        //flex-direction: row-reverse;
         flex-wrap:wrap;
+        margin: 10px;
+    }
+    &__lien-navigation {
+        color: #901C1C;
+        @media all and (max-width: 768px) {
+            order: 3;
+        }
     }
     &__logo {
         @media all and (max-width: 768px) {
@@ -66,10 +72,7 @@ $couleur-text-hover: #ffffff;
         }
     }
     &__navigation {
-        @media all and (max-width: 768px) {
-            order: 3;
-            //width: 100%;
-        }
+
         &--taggs {
             display: flex;
             @media all and (max-width: 768px) {
@@ -105,13 +108,7 @@ $couleur-text-hover: #ffffff;
         flex-direction: column;
     }
     &__bloc {
-        //display: none;
-        /*width: 526px;
-        height: 358px;
-        top: -50px;
-        left: -162px;*/
         width: 33.33%;
-        border: 2px solid #95FFF9;
         margin-top: 20px;
         @media all and (max-width: 768px) {
             width: 100%;

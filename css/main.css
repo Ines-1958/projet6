@@ -56,6 +56,17 @@ p {
 @media all and (max-width: 768px) {
   .heading {
     flex-wrap: wrap;
+    margin: 10px;
+  }
+}
+
+.heading__lien-navigation {
+  color: #901C1C;
+}
+
+@media all and (max-width: 768px) {
+  .heading__lien-navigation {
+    order: 3;
   }
 }
 
@@ -73,12 +84,6 @@ p {
 @media all and (max-width: 768px) {
   .heading__logo--img {
     width: 150px;
-  }
-}
-
-@media all and (max-width: 768px) {
-  .heading__navigation {
-    order: 3;
   }
 }
 
@@ -126,12 +131,7 @@ p {
 }
 
 .photographes__bloc {
-  /*width: 526px;
-        height: 358px;
-        top: -50px;
-        left: -162px;*/
   width: 33.33%;
-  border: 2px solid #95FFF9;
   margin-top: 20px;
 }
 

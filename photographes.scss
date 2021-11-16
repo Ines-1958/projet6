@@ -23,19 +23,14 @@ $background-color-hover: #db8876;
 $couleur-text-hover: #ffffff;
 $border-radius-bloc: 5px;
 
-/*label {
-    display: inline-block;
-    font-size: 12px;
-    margin-bottom: 10px;
-}
-input {
-    padding: 8px;
-    border: 0.8px solid #ccc;
-}*/
 .heading {
 
     &__logo {
         width: 150px;
+        @media all and (max-width: 768px) {
+            margin-left: -25px;
+            margin-top: 10px;
+        }
     }
 }
 .heading-photo {//à corriger avec la bonne classe
@@ -56,7 +51,6 @@ input {
     margin: 20px 0;
     background-color: #FAFAFA;
     border-radius: 5px;
-    border: 2px solid #95FFF9;
     @media all and (max-width: 768px) {
         padding: 0;
     }
@@ -113,10 +107,8 @@ input {
     }
     @media all and (max-width: 768px) {
         position: fixed;
-        //top: 530px;
         bottom: 0;
-        left: calc(80vw - 50%);//à corriger
-        //left: calc(100vw - 260px);//à corriger
+        left: calc(80vw - 50%);
     }
 }
 .photographe-galerie {
@@ -130,8 +122,10 @@ input {
         border-radius: 5px;
         position: fixed;
         right: 10px;
-        //top: 500px;
         bottom: 0;
+        @media all and (max-width: 768px) {
+            display: none;
+        }
         &--likes {
            i{
             margin-left: 5px;
@@ -153,9 +147,7 @@ input {
         font-size: 13px;
     }
 }
-.photographe-medias {//bordure à supprimer
-    border: 2PX solid #95FFF9;
-}
+
 .photographe-medias {
     display: flex;
     flex-wrap: wrap;
@@ -189,10 +181,6 @@ input {
             height: 310px;
             object-fit: cover;
             border-radius: 5px;
-            // &:focus,
-            // &:hover {
-            //     border: 2px dashed gold;
-            // }
         }
     }
 }
@@ -216,26 +204,12 @@ animation-duration: 0.9s;
     //width: 500px;
     //height: 600px;
     background-color: #DB8876;
-    //margin: 0 auto;
     border-radius: 5px;
-
     width: 100%;
     max-width: 500px;
     margin: 5% auto;
     overflow: hidden;
     position: relative;
-    // top: 50%;
-    // left: 50%;
-    // position: fixed;
-    // margin-top: -80px;
-    // z-index: 5;
-
-    //position: fixed;
-    // z-index: 1;
-    // left: 0;
-    // top: 0;
-    //height: 100%;
-    //width: 80%;
     overflow: auto;
     
     @media all and (max-width: 768px) {
@@ -259,11 +233,9 @@ animation-duration: 0.9s;
         color: #000;
     }
     &__infos {
-        /*padding: 15px;
-        margin: 15px;*/
+
         label {
             display: inline-block;
-            //font-size: 12px;
             margin-bottom: 10px;
         }
         input {
@@ -293,12 +265,10 @@ animation-duration: 0.9s;
     @media all and (max-width: 768px) {
         display: block;
         margin: 40px auto;
-        //left: calc(100vw - 50%);
     }
 }
 .zone-texte {
     margin: 0;
-    //padding: 8px;
     width: 97%;
     height: 20px;
     font-size: 20px;
@@ -310,9 +280,6 @@ animation-duration: 0.9s;
     
 }
 
-.photographe-heading-old, .photographe-galerie-old, .photographe-medias-old {
-    display: none;
-}
 
 @keyframes open-modal {
     from {
@@ -347,8 +314,11 @@ animation-duration: 0.9s;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 100%;
-    // margin-left: 50px;
-    // margin-right: 50px;
+
+    @media all and (max-width: 768px) {
+        height: 100%;
+        width: 310px;
+    }
     &__img {
         width: 100%;
         max-width: 100%;
@@ -364,16 +334,23 @@ animation-duration: 0.9s;
         position: fixed;
         top: 50%;
         z-index: 10;
-        //opacity: 0.5;
         left: 0;
     }
     &__next {
         left: auto;
         right: 0;
         margin-right: 260px;
+        @media all and (max-width: 768px) {
+            left: auto;
+            margin-right: 5px;
+        }
     }
     &__prev {
         margin-left: 260px;
+        @media all and (max-width: 768px) {
+            left: auto;
+            margin-left: -5px;
+        }
     }
 } 
 
@@ -382,11 +359,16 @@ animation-duration: 0.9s;
     cursor: pointer;
     border-radius: 5px;
     @media all and (max-width: 768px) {
-        width: 337px;
+        width: 310px;
+        margin-top: 322PX;
     }
 }
 #lightbox__titre {
     color: #901C1C;
+    @media all and (max-width: 768px) {
+        position: absolute;
+        bottom: 175px;
+    }
 }
 
 #fermer{
@@ -401,6 +383,15 @@ animation-duration: 0.9s;
     left: auto;
     right: 0;
     margin-right: 260px;
+    @media all and (max-width: 768px) {
+        left: auto;
+        margin-right: 5px;
+        top: 170px;
+    }
+}
+.boutonClose {
+    background: none;
+    border: none;
 }
 
 
@@ -409,31 +400,19 @@ select {
 }
 .select-filter {
     position: relative;
-    //background-color: $couleur-secondaire;
     padding: 0px 10PX;
     color: #FFFFFF;
     border-radius: $border-radius-bloc;
-    &:hover,
-    &:focus-visible {
-        color: black;
-        outline: 2px dashed green;
-        background-color: $background-color-hover;
-    }
-    // &:hover {
-    //     background-color: $background-color-hover; 
-    //     //color: black;
-    // }
-    // label {
-    //     margin-right: 10px;
-    // }
 }
 .select-filter-selected {
     background-color: $couleur-tertiaire;
     position: relative;
     color: #FFFFFF;
-    padding: 7px;
-    width: 115px;
     border-radius: 5px;
+
+    font-size: 15px;
+    border: none;
+    padding: 10px 61px 10px 10px;
     &:after {
         content:"\f107";
         font-family: 'Font Awesome 5 Pro';
@@ -441,8 +420,6 @@ select {
         font-size: 19px;
         position: absolute;
         right: 5px;
-        // top: 50%;
-        // transform: translateY(-50%);
         top: 8px;
         height: 0;
     }
@@ -456,10 +433,10 @@ select {
 .select-filter-items {
     position: absolute;
     left: 0;
-    //top: 100%;
     background-color: $couleur-tertiaire;
     top: 0;
     border-radius: 5px;
+    padding: 0 5px;
     &:after {
         content:"\f106";
         font-family: 'Font Awesome 5 Pro';
@@ -471,7 +448,6 @@ select {
     }
     
     div {
-        // background-color: $couleur-tertiaire;
         padding: 7px;
         border-bottom: 1px solid rgba(255,255,255,0.2);
         cursor: pointer;

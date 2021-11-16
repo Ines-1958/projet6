@@ -6,7 +6,7 @@ rawFile.onreadystatechange = function() {
     if(rawFile.readyState == 4 && rawFile.status == 200) {
         var json = rawFile.responseText;
         obj = JSON.parse(json);
-     // console.log(rawFile.responseText)
+        
      mesPhotographes();  
      
     }
@@ -15,13 +15,11 @@ rawFile.send(null);
 
 function mesPhotographes(filtre){
     const section = document.querySelector('.photographes');
-    // const sectionFiltre = document.querySelector('.photographes');
-    // const myMain = document.querySelector("#haut-page");
+
     if (filtre == undefined) {
          //Création HTML
         obj.photographers.forEach(function(photographes) {
             
-            //const section = document.querySelector('.photographes')
             var monHtml = `
             <div class="photographes__bloc">
                     <div class="photographe">
@@ -40,7 +38,7 @@ function mesPhotographes(filtre){
                     <a href="">
                         <nav class="main-navigation">
                             <ul class="main-navigation__taggs" aria-label="tags du photographe">
-            `; console.log("TOTO")
+            `; 
             photographes.tags.forEach(function(tagPhotographe) {
                 monHtml += `<li class="main-navigation__taggs--li" >#${tagPhotographe}</li>`;
                 });
@@ -50,8 +48,6 @@ function mesPhotographes(filtre){
             </a>`;
             
             section.innerHTML += monHtml;
-
-            // console.log(monHtml);
             
         })
     }
@@ -79,7 +75,7 @@ function mesPhotographes(filtre){
                     <a href="">
                         <nav class="main-navigation">
                             <ul class="main-navigation__taggs">
-            `; //console.log("TOTO")
+            `; 
             photographes.tags.forEach(function(tagPhotographe) {
                 monHtml += `<li class="main-navigation__taggs--li">#${tagPhotographe}</li>`;
                 });
@@ -87,33 +83,23 @@ function mesPhotographes(filtre){
             monHtml += `</ul>
             </nav>
             </a>
-            </div>`;
-            
-            // myMain.removeChild(section);
-            // myMain.appendChild(sectionFiltre);
-            // console.log(monHtml);     
+            </div>`;   
         }
     })
     section.innerHTML = monHtml;
-    }
-    console.log(filtre);
-   
-    
-        
+    }           
 }
 
 //FILTRES PAR TAGS PHOTOGRAPHES
 const myTags = document.querySelectorAll(".heading__navigation--taggs .heading__navigation--taggs--li");
 const tags = document.querySelectorAll("data-tag");
-console.log("tags");
 
 myTags.forEach(function(element){
     element.addEventListener("click", affichage);
 })
-console.log(myTags);
 
 function affichage(){
-    //console.log(this.getAttribute("data-tag"));
+
     var filtre = this.getAttribute("data-tag");//pour cibler chaque filtre(tag) dans ma liste
     mesPhotographes(filtre);
 }
