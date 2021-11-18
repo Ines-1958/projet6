@@ -35,7 +35,7 @@ function mesPhotographes(filtre){
                         <p>${photographes.tagline}</p>
                         <p>${photographes.price}€/jour</p>
                     </div>
-                    <a href="">
+                    
                         <nav class="main-navigation">
                             <ul class="main-navigation__taggs" aria-label="tags du photographe">
             `; 
@@ -45,7 +45,7 @@ function mesPhotographes(filtre){
 
             monHtml += `</ul>
             </nav>
-            </a>`;
+            `;
             
             section.innerHTML += monHtml;
             
@@ -72,7 +72,7 @@ function mesPhotographes(filtre){
                         <p>${photographes.tagline}</p>
                         <p>${photographes.price}€/jour</p>
                     </div>
-                    <a href="">
+                    
                         <nav class="main-navigation">
                             <ul class="main-navigation__taggs">
             `; 
@@ -82,7 +82,7 @@ function mesPhotographes(filtre){
 
             monHtml += `</ul>
             </nav>
-            </a>
+            
             </div>`;   
         }
     })

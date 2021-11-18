@@ -181,6 +181,7 @@ $border-radius-bloc: 5px;
             height: 310px;
             object-fit: cover;
             border-radius: 5px;
+            box-shadow: 0px 5px 9px 2px #757575;
         }
     }
 }
@@ -301,8 +302,8 @@ animation-duration: 0.9s;
     right: 0;
     bottom: 0;
     overflow: auto;
-    //background-color: rgba(0,0,2,0.8);
     background-color: #FFF;
+    //background-color: rgba(20,50,92,0.4);
 }
 
 .lightbox{
@@ -349,7 +350,7 @@ animation-duration: 0.9s;
         margin-left: 260px;
         @media all and (max-width: 768px) {
             left: auto;
-            margin-left: -5px;
+            margin-left: 5px;
         }
     }
 } 
@@ -358,16 +359,20 @@ animation-duration: 0.9s;
     width: 500px;
     cursor: pointer;
     border-radius: 5px;
+    position: relative;
+    margin-top: 50px;
+
     @media all and (max-width: 768px) {
         width: 310px;
-        margin-top: 322PX;
+        margin-top: 256px;
+        position: relative;
     }
 }
 #lightbox__titre {
     color: #901C1C;
     @media all and (max-width: 768px) {
         position: absolute;
-        bottom: 175px;
+        bottom: 95px;
     }
 }
 

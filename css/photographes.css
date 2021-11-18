@@ -213,6 +213,7 @@ h1 {
   height: 310px;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0px 5px 9px 2px #757575;
 }
 
 .conteneur-modale {
@@ -396,7 +397,7 @@ h1 {
 @media all and (max-width: 768px) {
   .lightbox__prev {
     left: auto;
-    margin-left: -5px;
+    margin-left: 5px;
   }
 }
 
@@ -404,12 +405,15 @@ h1 {
   width: 500px;
   cursor: pointer;
   border-radius: 5px;
+  position: relative;
+  margin-top: 50px;
 }
 
 @media all and (max-width: 768px) {
   #lightbox__video {
     width: 310px;
-    margin-top: 322PX;
+    margin-top: 256px;
+    position: relative;
   }
 }
 
@@ -420,7 +424,7 @@ h1 {
 @media all and (max-width: 768px) {
   #lightbox__titre {
     position: absolute;
-    bottom: 175px;
+    bottom: 95px;
   }
 }
 
