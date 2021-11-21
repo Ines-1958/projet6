@@ -4,6 +4,24 @@ const urlParams = new URLSearchParams(idRecuperation);
 const urlId = urlParams.get('id')
 console.log(urlId);
 
+function initLightbox () {
+    const lightbox = document.getElementById("lightbox");
+    const image = document.createElement("img");
+    image.id = "lightbox__image";
+    image.className = "lightbox__img";
+    image.alt = "images de la galierie du photographe";
+
+    const video = document.createElement("video");
+    video.id = "lightbox__video";
+
+    const titre = document.createElement("p");
+    titre.id = "lightbox__titre";
+
+    lightbox.appendChild(image);
+    lightbox.appendChild(video);
+    lightbox.appendChild(titre);
+}
+initLightbox();
 
 function factory(json, idPhotographe, order) {
     let result = [];

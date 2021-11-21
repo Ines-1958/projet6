@@ -12,6 +12,11 @@ body h2 {
 body a {
     text-decoration: none;
 }
+
+body a:focus-visible {
+    outline: 2px dashed #D3573C;
+}
+
 body ul {
     list-style-type: none;
 }
@@ -53,7 +58,7 @@ $couleur-text-hover: #ffffff;
         flex-wrap:wrap;
         margin: 10px;
     }
-    &__lien-navigation {
+    &__navigation {
         color: #901C1C;
         @media all and (max-width: 768px) {
             order: 3;

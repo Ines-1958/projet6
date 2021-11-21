@@ -40,12 +40,14 @@ function mesPhotographes(filtre){
                             <ul class="main-navigation__taggs" aria-label="tags du photographe">
             `; 
             photographes.tags.forEach(function(tagPhotographe) {
-                monHtml += `<li class="main-navigation__taggs--li" >#${tagPhotographe}</li>`;
+                monHtml += `<li class="main-navigation__taggs--li" tabindex="0" >#${tagPhotographe}</li>`;
                 });
 
             monHtml += `</ul>
             </nav>
+            </div>
             `;
+
             
             section.innerHTML += monHtml;
             
@@ -77,7 +79,7 @@ function mesPhotographes(filtre){
                             <ul class="main-navigation__taggs">
             `; 
             photographes.tags.forEach(function(tagPhotographe) {
-                monHtml += `<li class="main-navigation__taggs--li">#${tagPhotographe}</li>`;
+                monHtml += `<li class="main-navigation__taggs--li" tabindex="0" >#${tagPhotographe}</li>`;
                 });
 
             monHtml += `</ul>

@@ -320,6 +320,10 @@ h1 {
   font-size: 10px;
 }
 
+::placeholder {
+  font-size: 12px;
+}
+
 @keyframes open-modal {
   from {
     opacity: 0;

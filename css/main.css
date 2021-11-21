@@ -16,6 +16,10 @@ body a {
   text-decoration: none;
 }
 
+body a:focus-visible {
+  outline: 2px dashed #D3573C;
+}
+
 body ul {
   list-style-type: none;
 }
@@ -60,12 +64,12 @@ p {
   }
 }
 
-.heading__lien-navigation {
+.heading__navigation {
   color: #901C1C;
 }
 
 @media all and (max-width: 768px) {
-  .heading__lien-navigation {
+  .heading__navigation {
     order: 3;
   }
 }
